@@ -1,0 +1,625 @@
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   4              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   5              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   6              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+   7              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+   8              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+   9              		.eabi_attribute 30, 4	@ Tag_ABI_optimization_goals
+  10              		.eabi_attribute 34, 0	@ Tag_CPU_unaligned_access
+  11              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  12              		.file	"stm32f0xx_it.c"
+  13              	@ GNU C (GCC) version 4.7.2 (arm-none-eabi)
+  14              	@	compiled by GNU C version 3.4.5 (mingw-vista special r3), GMP version 5.0.4, MPFR version 2.4.2, 
+  15              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  16              	@ options passed:  -I .
+  17              	@ -I ..\STM32F0-Discovery_FW_V1.0.0\Libraries\CMSIS\ST\STM32F0xx\Include
+  18              	@ -I ..\STM32F0-Discovery_FW_V1.0.0\Libraries\CMSIS\Include
+  19              	@ -I ..\STM32F0-Discovery_FW_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\inc
+  20              	@ -I ..\STM32F0-Discovery_FW_V1.0.0\Utilities\STM32F0-Discovery -I .\inc
+  21              	@ -imultilib thumb/v6m
+  22              	@ -iprefix c:\yagarto-20121222\bin\../lib/gcc/arm-none-eabi/4.7.2/
+  23              	@ -MD .\src\stm32f0xx_it.d -MF .dep\stm32f0xx_it.o.d -MP
+  24              	@ -MQ .\src\stm32f0xx_it.o -D__USES_INITFINI__ -D STM32F0XX
+  25              	@ -D USE_STDPERIPH_DRIVER -D RUN_FROM_FLASH=1 .\src\stm32f0xx_it.c
+  26              	@ -mcpu=cortex-m0 -mthumb -auxbase-strip .\src\stm32f0xx_it.o -gdwarf-2 -Os
+  27              	@ -Wall -Wstrict-prototypes -fomit-frame-pointer -fverbose-asm
+  28              	@ options enabled:  -fauto-inc-dec -fbranch-count-reg -fcaller-saves
+  29              	@ -fcombine-stack-adjustments -fcommon -fcompare-elim -fcprop-registers
+  30              	@ -fcrossjumping -fcse-follow-jumps -fdebug-types-section -fdefer-pop
+  31              	@ -fdelete-null-pointer-checks -fdevirtualize -fdwarf2-cfi-asm
+  32              	@ -fearly-inlining -feliminate-unused-debug-types -fexpensive-optimizations
+  33              	@ -fforward-propagate -ffunction-cse -fgcse -fgcse-lm -fgnu-runtime
+  34              	@ -fguess-branch-probability -fident -fif-conversion -fif-conversion2
+  35              	@ -findirect-inlining -finline -finline-atomics -finline-functions
+  36              	@ -finline-functions-called-once -finline-small-functions -fipa-cp
+  37              	@ -fipa-profile -fipa-pure-const -fipa-reference -fipa-sra
+  38              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  39              	@ -fkeep-static-consts -fleading-underscore -fmath-errno -fmerge-constants
+  40              	@ -fmerge-debug-strings -fmove-loop-invariants -fomit-frame-pointer
+  41              	@ -foptimize-register-move -foptimize-sibling-calls -fpartial-inlining
+  42              	@ -fpeephole -fpeephole2 -fprefetch-loop-arrays -freg-struct-return
+  43              	@ -fregmove -freorder-blocks -freorder-functions -frerun-cse-after-loop
+  44              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  45              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  46              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  47              	@ -fsched-stalled-insns-dep -fschedule-insns2 -fsection-anchors
+  48              	@ -fshow-column -fshrink-wrap -fsigned-zeros -fsplit-ivs-in-unroller
+  49              	@ -fsplit-wide-types -fstrict-aliasing -fstrict-overflow
+  50              	@ -fstrict-volatile-bitfields -fthread-jumps -ftoplevel-reorder
+  51              	@ -ftrapping-math -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp
+  52              	@ -ftree-ch -ftree-copy-prop -ftree-copyrename -ftree-cselim -ftree-dce
+  53              	@ -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-fre
+  54              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  55              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop -ftree-pre
+  56              	@ -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-sink
+  57              	@ -ftree-slp-vectorize -ftree-sra -ftree-switch-conversion
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s 			page 2
+
+
+  58              	@ -ftree-tail-merge -ftree-ter -ftree-vect-loop-version -ftree-vrp
+  59              	@ -funit-at-a-time -fvar-tracking -fvar-tracking-assignments -fverbose-asm
+  60              	@ -fzero-initialized-in-bss -mlittle-endian -msched-prolog -mthumb
+  61              	@ -mvectorize-with-neon-quad
+  62              	
+  63              		.text
+  64              	.Ltext0:
+  65              		.cfi_sections	.debug_frame
+  66              		.align	1
+  67              		.global	NMI_Handler
+  68              		.code	16
+  69              		.thumb_func
+  70              		.type	NMI_Handler, %function
+  71              	NMI_Handler:
+  72              	.LFB32:
+  73              		.file 1 ".\\src\\stm32f0xx_it.c"
+   1:.\src/stm32f0xx_it.c **** /**
+   2:.\src/stm32f0xx_it.c ****   ******************************************************************************
+   3:.\src/stm32f0xx_it.c ****   * @file    IO_Toggle/stm32f0xx_it.c 
+   4:.\src/stm32f0xx_it.c ****   * @author  MCD Application Team
+   5:.\src/stm32f0xx_it.c ****   * @version V1.0.0
+   6:.\src/stm32f0xx_it.c ****   * @date    23-March-2012
+   7:.\src/stm32f0xx_it.c ****   * @brief   Main Interrupt Service Routines.
+   8:.\src/stm32f0xx_it.c ****   *          This file provides template for all exceptions handler and 
+   9:.\src/stm32f0xx_it.c ****   *          peripherals interrupt service routine.
+  10:.\src/stm32f0xx_it.c ****   ******************************************************************************
+  11:.\src/stm32f0xx_it.c ****   * @attention
+  12:.\src/stm32f0xx_it.c ****   *
+  13:.\src/stm32f0xx_it.c ****   * <h2><center>&copy; COPYRIGHT 2012 STMicroelectronics</center></h2>
+  14:.\src/stm32f0xx_it.c ****   *
+  15:.\src/stm32f0xx_it.c ****   * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
+  16:.\src/stm32f0xx_it.c ****   * You may not use this file except in compliance with the License.
+  17:.\src/stm32f0xx_it.c ****   * You may obtain a copy of the License at:
+  18:.\src/stm32f0xx_it.c ****   *
+  19:.\src/stm32f0xx_it.c ****   *        http://www.st.com/software_license_agreement_liberty_v2
+  20:.\src/stm32f0xx_it.c ****   *
+  21:.\src/stm32f0xx_it.c ****   * Unless required by applicable law or agreed to in writing, software 
+  22:.\src/stm32f0xx_it.c ****   * distributed under the License is distributed on an "AS IS" BASIS, 
+  23:.\src/stm32f0xx_it.c ****   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  24:.\src/stm32f0xx_it.c ****   * See the License for the specific language governing permissions and
+  25:.\src/stm32f0xx_it.c ****   * limitations under the License.
+  26:.\src/stm32f0xx_it.c ****   *
+  27:.\src/stm32f0xx_it.c ****   ******************************************************************************
+  28:.\src/stm32f0xx_it.c ****   */
+  29:.\src/stm32f0xx_it.c **** 
+  30:.\src/stm32f0xx_it.c **** /* Includes ------------------------------------------------------------------*/
+  31:.\src/stm32f0xx_it.c **** #include "stm32f0xx_it.h"
+  32:.\src/stm32f0xx_it.c **** 
+  33:.\src/stm32f0xx_it.c **** /** @addtogroup STM32F0_Discovery_Peripheral_Examples
+  34:.\src/stm32f0xx_it.c ****   * @{
+  35:.\src/stm32f0xx_it.c ****   */
+  36:.\src/stm32f0xx_it.c **** 
+  37:.\src/stm32f0xx_it.c **** /** @addtogroup IO_Toggle
+  38:.\src/stm32f0xx_it.c ****   * @{
+  39:.\src/stm32f0xx_it.c ****   */
+  40:.\src/stm32f0xx_it.c **** 
+  41:.\src/stm32f0xx_it.c **** /* Private typedef -----------------------------------------------------------*/
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s 			page 3
+
+
+  42:.\src/stm32f0xx_it.c **** /* Private define ------------------------------------------------------------*/
+  43:.\src/stm32f0xx_it.c **** /* Private macro -------------------------------------------------------------*/
+  44:.\src/stm32f0xx_it.c **** /* Private variables ---------------------------------------------------------*/
+  45:.\src/stm32f0xx_it.c **** /* Private function prototypes -----------------------------------------------*/
+  46:.\src/stm32f0xx_it.c **** /* Private functions ---------------------------------------------------------*/
+  47:.\src/stm32f0xx_it.c **** 
+  48:.\src/stm32f0xx_it.c **** /******************************************************************************/
+  49:.\src/stm32f0xx_it.c **** /*            Cortex-M0 Processor Exceptions Handlers                         */
+  50:.\src/stm32f0xx_it.c **** /******************************************************************************/
+  51:.\src/stm32f0xx_it.c **** 
+  52:.\src/stm32f0xx_it.c **** /**
+  53:.\src/stm32f0xx_it.c ****   * @brief  This function handles NMI exception.
+  54:.\src/stm32f0xx_it.c ****   * @param  None
+  55:.\src/stm32f0xx_it.c ****   * @retval None
+  56:.\src/stm32f0xx_it.c ****   */
+  57:.\src/stm32f0xx_it.c **** void NMI_Handler(void)
+  58:.\src/stm32f0xx_it.c **** {
+  74              		.loc 1 58 0
+  75              		.cfi_startproc
+  59:.\src/stm32f0xx_it.c **** }
+  76              		.loc 1 59 0
+  77              		@ sp needed for prologue	@
+  78 0000 7047     		bx	lr
+  79              		.cfi_endproc
+  80              	.LFE32:
+  81              		.size	NMI_Handler, .-NMI_Handler
+  82              		.align	1
+  83              		.global	HardFault_Handler
+  84              		.code	16
+  85              		.thumb_func
+  86              		.type	HardFault_Handler, %function
+  87              	HardFault_Handler:
+  88              	.LFB33:
+  60:.\src/stm32f0xx_it.c **** 
+  61:.\src/stm32f0xx_it.c **** /**
+  62:.\src/stm32f0xx_it.c ****   * @brief  This function handles Hard Fault exception.
+  63:.\src/stm32f0xx_it.c ****   * @param  None
+  64:.\src/stm32f0xx_it.c ****   * @retval None
+  65:.\src/stm32f0xx_it.c ****   */
+  66:.\src/stm32f0xx_it.c **** void HardFault_Handler(void)
+  67:.\src/stm32f0xx_it.c **** {
+  89              		.loc 1 67 0
+  90              		.cfi_startproc
+  91 0002 00B5     		push	{lr}	@
+  92              	.LCFI0:
+  93              		.cfi_def_cfa_offset 4
+  94              		.cfi_offset 14, -4
+  95              	.L3:
+  96 0004 FEE7     		b	.L3	@
+  97              		.cfi_endproc
+  98              	.LFE33:
+  99              		.size	HardFault_Handler, .-HardFault_Handler
+ 100              		.align	1
+ 101              		.global	SVC_Handler
+ 102              		.code	16
+ 103              		.thumb_func
+ 104              		.type	SVC_Handler, %function
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s 			page 4
+
+
+ 105              	SVC_Handler:
+ 106              	.LFB34:
+  68:.\src/stm32f0xx_it.c ****   /* Go to infinite loop when Hard Fault exception occurs */
+  69:.\src/stm32f0xx_it.c ****   while (1)
+  70:.\src/stm32f0xx_it.c ****   {
+  71:.\src/stm32f0xx_it.c ****   }
+  72:.\src/stm32f0xx_it.c **** }
+  73:.\src/stm32f0xx_it.c **** 
+  74:.\src/stm32f0xx_it.c **** /**
+  75:.\src/stm32f0xx_it.c ****   * @brief  This function handles SVCall exception.
+  76:.\src/stm32f0xx_it.c ****   * @param  None
+  77:.\src/stm32f0xx_it.c ****   * @retval None
+  78:.\src/stm32f0xx_it.c ****   */
+  79:.\src/stm32f0xx_it.c **** void SVC_Handler(void)
+  80:.\src/stm32f0xx_it.c **** {
+ 107              		.loc 1 80 0
+ 108              		.cfi_startproc
+  81:.\src/stm32f0xx_it.c **** }
+ 109              		.loc 1 81 0
+ 110              		@ sp needed for prologue	@
+ 111 0006 7047     		bx	lr
+ 112              		.cfi_endproc
+ 113              	.LFE34:
+ 114              		.size	SVC_Handler, .-SVC_Handler
+ 115              		.align	1
+ 116              		.global	PendSV_Handler
+ 117              		.code	16
+ 118              		.thumb_func
+ 119              		.type	PendSV_Handler, %function
+ 120              	PendSV_Handler:
+ 121              	.LFB35:
+  82:.\src/stm32f0xx_it.c **** 
+  83:.\src/stm32f0xx_it.c **** /**
+  84:.\src/stm32f0xx_it.c ****   * @brief  This function handles PendSVC exception.
+  85:.\src/stm32f0xx_it.c ****   * @param  None
+  86:.\src/stm32f0xx_it.c ****   * @retval None
+  87:.\src/stm32f0xx_it.c ****   */
+  88:.\src/stm32f0xx_it.c **** void PendSV_Handler(void)
+  89:.\src/stm32f0xx_it.c **** {
+ 122              		.loc 1 89 0
+ 123              		.cfi_startproc
+  90:.\src/stm32f0xx_it.c **** }
+ 124              		.loc 1 90 0
+ 125              		@ sp needed for prologue	@
+ 126 0008 7047     		bx	lr
+ 127              		.cfi_endproc
+ 128              	.LFE35:
+ 129              		.size	PendSV_Handler, .-PendSV_Handler
+ 130              		.align	1
+ 131              		.global	SysTick_Handler
+ 132              		.code	16
+ 133              		.thumb_func
+ 134              		.type	SysTick_Handler, %function
+ 135              	SysTick_Handler:
+ 136              	.LFB36:
+  91:.\src/stm32f0xx_it.c **** 
+  92:.\src/stm32f0xx_it.c **** /**
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s 			page 5
+
+
+  93:.\src/stm32f0xx_it.c ****   * @brief  This function handles SysTick Handler.
+  94:.\src/stm32f0xx_it.c ****   * @param  None
+  95:.\src/stm32f0xx_it.c ****   * @retval None
+  96:.\src/stm32f0xx_it.c ****   */
+  97:.\src/stm32f0xx_it.c **** void SysTick_Handler(void)
+  98:.\src/stm32f0xx_it.c **** {
+ 137              		.loc 1 98 0
+ 138              		.cfi_startproc
+  99:.\src/stm32f0xx_it.c **** }
+ 139              		.loc 1 99 0
+ 140              		@ sp needed for prologue	@
+ 141 000a 7047     		bx	lr
+ 142              		.cfi_endproc
+ 143              	.LFE36:
+ 144              		.size	SysTick_Handler, .-SysTick_Handler
+ 145              	.Letext0:
+ 146              		.section	.debug_info,"",%progbits
+ 147              	.Ldebug_info0:
+ 148 0000 D9000000 		.4byte	0xd9
+ 149 0004 0200     		.2byte	0x2
+ 150 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 151 000a 04       		.byte	0x4
+ 152 000b 01       		.uleb128 0x1
+ 153 000c 29000000 		.4byte	.LASF15
+ 154 0010 01       		.byte	0x1
+ 155 0011 DC000000 		.4byte	.LASF16
+ 156 0015 8B000000 		.4byte	.LASF17
+ 157 0019 00000000 		.4byte	.Ltext0
+ 158 001d 0C000000 		.4byte	.Letext0
+ 159 0021 00000000 		.4byte	.Ldebug_line0
+ 160 0025 02       		.uleb128 0x2
+ 161 0026 01       		.byte	0x1
+ 162 0027 06       		.byte	0x6
+ 163 0028 04010000 		.4byte	.LASF0
+ 164 002c 02       		.uleb128 0x2
+ 165 002d 01       		.byte	0x1
+ 166 002e 08       		.byte	0x8
+ 167 002f 1B000000 		.4byte	.LASF1
+ 168 0033 02       		.uleb128 0x2
+ 169 0034 02       		.byte	0x2
+ 170 0035 05       		.byte	0x5
+ 171 0036 1C010000 		.4byte	.LASF2
+ 172 003a 02       		.uleb128 0x2
+ 173 003b 02       		.byte	0x2
+ 174 003c 07       		.byte	0x7
+ 175 003d F1000000 		.4byte	.LASF3
+ 176 0041 02       		.uleb128 0x2
+ 177 0042 04       		.byte	0x4
+ 178 0043 05       		.byte	0x5
+ 179 0044 D3000000 		.4byte	.LASF4
+ 180 0048 02       		.uleb128 0x2
+ 181 0049 04       		.byte	0x4
+ 182 004a 07       		.byte	0x7
+ 183 004b 35000000 		.4byte	.LASF5
+ 184 004f 02       		.uleb128 0x2
+ 185 0050 08       		.byte	0x8
+ 186 0051 05       		.byte	0x5
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s 			page 6
+
+
+ 187 0052 00000000 		.4byte	.LASF6
+ 188 0056 02       		.uleb128 0x2
+ 189 0057 08       		.byte	0x8
+ 190 0058 07       		.byte	0x7
+ 191 0059 47000000 		.4byte	.LASF7
+ 192 005d 03       		.uleb128 0x3
+ 193 005e 04       		.byte	0x4
+ 194 005f 05       		.byte	0x5
+ 195 0060 696E7400 		.ascii	"int\000"
+ 196 0064 02       		.uleb128 0x2
+ 197 0065 04       		.byte	0x4
+ 198 0066 07       		.byte	0x7
+ 199 0067 0E000000 		.4byte	.LASF8
+ 200 006b 02       		.uleb128 0x2
+ 201 006c 04       		.byte	0x4
+ 202 006d 07       		.byte	0x7
+ 203 006e 26010000 		.4byte	.LASF9
+ 204 0072 04       		.uleb128 0x4
+ 205 0073 01       		.byte	0x1
+ 206 0074 70000000 		.4byte	.LASF10
+ 207 0078 01       		.byte	0x1
+ 208 0079 39       		.byte	0x39
+ 209 007a 01       		.byte	0x1
+ 210 007b 00000000 		.4byte	.LFB32
+ 211 007f 02000000 		.4byte	.LFE32
+ 212 0083 02       		.byte	0x2
+ 213 0084 7D       		.byte	0x7d
+ 214 0085 00       		.sleb128 0
+ 215 0086 01       		.byte	0x1
+ 216 0087 05       		.uleb128 0x5
+ 217 0088 01       		.byte	0x1
+ 218 0089 5E000000 		.4byte	.LASF11
+ 219 008d 01       		.byte	0x1
+ 220 008e 42       		.byte	0x42
+ 221 008f 01       		.byte	0x1
+ 222 0090 02000000 		.4byte	.LFB33
+ 223 0094 06000000 		.4byte	.LFE33
+ 224 0098 00000000 		.4byte	.LLST0
+ 225 009c 01       		.byte	0x1
+ 226 009d 04       		.uleb128 0x4
+ 227 009e 01       		.byte	0x1
+ 228 009f 10010000 		.4byte	.LASF12
+ 229 00a3 01       		.byte	0x1
+ 230 00a4 4F       		.byte	0x4f
+ 231 00a5 01       		.byte	0x1
+ 232 00a6 06000000 		.4byte	.LFB34
+ 233 00aa 08000000 		.4byte	.LFE34
+ 234 00ae 02       		.byte	0x2
+ 235 00af 7D       		.byte	0x7d
+ 236 00b0 00       		.sleb128 0
+ 237 00b1 01       		.byte	0x1
+ 238 00b2 04       		.uleb128 0x4
+ 239 00b3 01       		.byte	0x1
+ 240 00b4 7C000000 		.4byte	.LASF13
+ 241 00b8 01       		.byte	0x1
+ 242 00b9 58       		.byte	0x58
+ 243 00ba 01       		.byte	0x1
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s 			page 7
+
+
+ 244 00bb 08000000 		.4byte	.LFB35
+ 245 00bf 0A000000 		.4byte	.LFE35
+ 246 00c3 02       		.byte	0x2
+ 247 00c4 7D       		.byte	0x7d
+ 248 00c5 00       		.sleb128 0
+ 249 00c6 01       		.byte	0x1
+ 250 00c7 04       		.uleb128 0x4
+ 251 00c8 01       		.byte	0x1
+ 252 00c9 C3000000 		.4byte	.LASF14
+ 253 00cd 01       		.byte	0x1
+ 254 00ce 61       		.byte	0x61
+ 255 00cf 01       		.byte	0x1
+ 256 00d0 0A000000 		.4byte	.LFB36
+ 257 00d4 0C000000 		.4byte	.LFE36
+ 258 00d8 02       		.byte	0x2
+ 259 00d9 7D       		.byte	0x7d
+ 260 00da 00       		.sleb128 0
+ 261 00db 01       		.byte	0x1
+ 262 00dc 00       		.byte	0
+ 263              		.section	.debug_abbrev,"",%progbits
+ 264              	.Ldebug_abbrev0:
+ 265 0000 01       		.uleb128 0x1
+ 266 0001 11       		.uleb128 0x11
+ 267 0002 01       		.byte	0x1
+ 268 0003 25       		.uleb128 0x25
+ 269 0004 0E       		.uleb128 0xe
+ 270 0005 13       		.uleb128 0x13
+ 271 0006 0B       		.uleb128 0xb
+ 272 0007 03       		.uleb128 0x3
+ 273 0008 0E       		.uleb128 0xe
+ 274 0009 1B       		.uleb128 0x1b
+ 275 000a 0E       		.uleb128 0xe
+ 276 000b 11       		.uleb128 0x11
+ 277 000c 01       		.uleb128 0x1
+ 278 000d 12       		.uleb128 0x12
+ 279 000e 01       		.uleb128 0x1
+ 280 000f 10       		.uleb128 0x10
+ 281 0010 06       		.uleb128 0x6
+ 282 0011 00       		.byte	0
+ 283 0012 00       		.byte	0
+ 284 0013 02       		.uleb128 0x2
+ 285 0014 24       		.uleb128 0x24
+ 286 0015 00       		.byte	0
+ 287 0016 0B       		.uleb128 0xb
+ 288 0017 0B       		.uleb128 0xb
+ 289 0018 3E       		.uleb128 0x3e
+ 290 0019 0B       		.uleb128 0xb
+ 291 001a 03       		.uleb128 0x3
+ 292 001b 0E       		.uleb128 0xe
+ 293 001c 00       		.byte	0
+ 294 001d 00       		.byte	0
+ 295 001e 03       		.uleb128 0x3
+ 296 001f 24       		.uleb128 0x24
+ 297 0020 00       		.byte	0
+ 298 0021 0B       		.uleb128 0xb
+ 299 0022 0B       		.uleb128 0xb
+ 300 0023 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s 			page 8
+
+
+ 301 0024 0B       		.uleb128 0xb
+ 302 0025 03       		.uleb128 0x3
+ 303 0026 08       		.uleb128 0x8
+ 304 0027 00       		.byte	0
+ 305 0028 00       		.byte	0
+ 306 0029 04       		.uleb128 0x4
+ 307 002a 2E       		.uleb128 0x2e
+ 308 002b 00       		.byte	0
+ 309 002c 3F       		.uleb128 0x3f
+ 310 002d 0C       		.uleb128 0xc
+ 311 002e 03       		.uleb128 0x3
+ 312 002f 0E       		.uleb128 0xe
+ 313 0030 3A       		.uleb128 0x3a
+ 314 0031 0B       		.uleb128 0xb
+ 315 0032 3B       		.uleb128 0x3b
+ 316 0033 0B       		.uleb128 0xb
+ 317 0034 27       		.uleb128 0x27
+ 318 0035 0C       		.uleb128 0xc
+ 319 0036 11       		.uleb128 0x11
+ 320 0037 01       		.uleb128 0x1
+ 321 0038 12       		.uleb128 0x12
+ 322 0039 01       		.uleb128 0x1
+ 323 003a 40       		.uleb128 0x40
+ 324 003b 0A       		.uleb128 0xa
+ 325 003c 9742     		.uleb128 0x2117
+ 326 003e 0C       		.uleb128 0xc
+ 327 003f 00       		.byte	0
+ 328 0040 00       		.byte	0
+ 329 0041 05       		.uleb128 0x5
+ 330 0042 2E       		.uleb128 0x2e
+ 331 0043 00       		.byte	0
+ 332 0044 3F       		.uleb128 0x3f
+ 333 0045 0C       		.uleb128 0xc
+ 334 0046 03       		.uleb128 0x3
+ 335 0047 0E       		.uleb128 0xe
+ 336 0048 3A       		.uleb128 0x3a
+ 337 0049 0B       		.uleb128 0xb
+ 338 004a 3B       		.uleb128 0x3b
+ 339 004b 0B       		.uleb128 0xb
+ 340 004c 27       		.uleb128 0x27
+ 341 004d 0C       		.uleb128 0xc
+ 342 004e 11       		.uleb128 0x11
+ 343 004f 01       		.uleb128 0x1
+ 344 0050 12       		.uleb128 0x12
+ 345 0051 01       		.uleb128 0x1
+ 346 0052 40       		.uleb128 0x40
+ 347 0053 06       		.uleb128 0x6
+ 348 0054 9742     		.uleb128 0x2117
+ 349 0056 0C       		.uleb128 0xc
+ 350 0057 00       		.byte	0
+ 351 0058 00       		.byte	0
+ 352 0059 00       		.byte	0
+ 353              		.section	.debug_loc,"",%progbits
+ 354              	.Ldebug_loc0:
+ 355              	.LLST0:
+ 356 0000 02000000 		.4byte	.LFB33-.Ltext0
+ 357 0004 04000000 		.4byte	.LCFI0-.Ltext0
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s 			page 9
+
+
+ 358 0008 0200     		.2byte	0x2
+ 359 000a 7D       		.byte	0x7d
+ 360 000b 00       		.sleb128 0
+ 361 000c 04000000 		.4byte	.LCFI0-.Ltext0
+ 362 0010 06000000 		.4byte	.LFE33-.Ltext0
+ 363 0014 0200     		.2byte	0x2
+ 364 0016 7D       		.byte	0x7d
+ 365 0017 04       		.sleb128 4
+ 366 0018 00000000 		.4byte	0
+ 367 001c 00000000 		.4byte	0
+ 368              		.section	.debug_aranges,"",%progbits
+ 369 0000 1C000000 		.4byte	0x1c
+ 370 0004 0200     		.2byte	0x2
+ 371 0006 00000000 		.4byte	.Ldebug_info0
+ 372 000a 04       		.byte	0x4
+ 373 000b 00       		.byte	0
+ 374 000c 0000     		.2byte	0
+ 375 000e 0000     		.2byte	0
+ 376 0010 00000000 		.4byte	.Ltext0
+ 377 0014 0C000000 		.4byte	.Letext0-.Ltext0
+ 378 0018 00000000 		.4byte	0
+ 379 001c 00000000 		.4byte	0
+ 380              		.section	.debug_line,"",%progbits
+ 381              	.Ldebug_line0:
+ 382 0000 4A000000 		.section	.debug_str,"MS",%progbits,1
+ 382      02002B00 
+ 382      00000201 
+ 382      FB0E0D00 
+ 382      01010101 
+ 383              	.LASF6:
+ 384 0000 6C6F6E67 		.ascii	"long long int\000"
+ 384      206C6F6E 
+ 384      6720696E 
+ 384      7400
+ 385              	.LASF8:
+ 386 000e 756E7369 		.ascii	"unsigned int\000"
+ 386      676E6564 
+ 386      20696E74 
+ 386      00
+ 387              	.LASF1:
+ 388 001b 756E7369 		.ascii	"unsigned char\000"
+ 388      676E6564 
+ 388      20636861 
+ 388      7200
+ 389              	.LASF15:
+ 390 0029 474E5520 		.ascii	"GNU C 4.7.2\000"
+ 390      4320342E 
+ 390      372E3200 
+ 391              	.LASF5:
+ 392 0035 6C6F6E67 		.ascii	"long unsigned int\000"
+ 392      20756E73 
+ 392      69676E65 
+ 392      6420696E 
+ 392      7400
+ 393              	.LASF7:
+ 394 0047 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 394      206C6F6E 
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s 			page 10
+
+
+ 394      6720756E 
+ 394      7369676E 
+ 394      65642069 
+ 395              	.LASF11:
+ 396 005e 48617264 		.ascii	"HardFault_Handler\000"
+ 396      4661756C 
+ 396      745F4861 
+ 396      6E646C65 
+ 396      7200
+ 397              	.LASF10:
+ 398 0070 4E4D495F 		.ascii	"NMI_Handler\000"
+ 398      48616E64 
+ 398      6C657200 
+ 399              	.LASF13:
+ 400 007c 50656E64 		.ascii	"PendSV_Handler\000"
+ 400      53565F48 
+ 400      616E646C 
+ 400      657200
+ 401              	.LASF17:
+ 402 008b 433A5C6D 		.ascii	"C:\\mo\\SoftwareWork\\EclipeWorkspace\\MB1034B_A0_i"
+ 402      6F5C536F 
+ 402      66747761 
+ 402      7265576F 
+ 402      726B5C45 
+ 403 00ba 6F746F67 		.ascii	"otoggle0\000"
+ 403      676C6530 
+ 403      00
+ 404              	.LASF14:
+ 405 00c3 53797354 		.ascii	"SysTick_Handler\000"
+ 405      69636B5F 
+ 405      48616E64 
+ 405      6C657200 
+ 406              	.LASF4:
+ 407 00d3 6C6F6E67 		.ascii	"long int\000"
+ 407      20696E74 
+ 407      00
+ 408              	.LASF16:
+ 409 00dc 2E5C7372 		.ascii	".\\src\\stm32f0xx_it.c\000"
+ 409      635C7374 
+ 409      6D333266 
+ 409      3078785F 
+ 409      69742E63 
+ 410              	.LASF3:
+ 411 00f1 73686F72 		.ascii	"short unsigned int\000"
+ 411      7420756E 
+ 411      7369676E 
+ 411      65642069 
+ 411      6E7400
+ 412              	.LASF0:
+ 413 0104 7369676E 		.ascii	"signed char\000"
+ 413      65642063 
+ 413      68617200 
+ 414              	.LASF12:
+ 415 0110 5356435F 		.ascii	"SVC_Handler\000"
+ 415      48616E64 
+ 415      6C657200 
+ 416              	.LASF2:
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s 			page 11
+
+
+ 417 011c 73686F72 		.ascii	"short int\000"
+ 417      7420696E 
+ 417      7400
+ 418              	.LASF9:
+ 419 0126 73697A65 		.ascii	"sizetype\000"
+ 419      74797065 
+ 419      00
+ 420              		.ident	"GCC: (GNU) 4.7.2"
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f0xx_it.c
+C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s:66     .text:00000000 $t
+C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s:71     .text:00000000 NMI_Handler
+C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s:87     .text:00000002 HardFault_Handler
+C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s:105    .text:00000006 SVC_Handler
+C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s:120    .text:00000008 PendSV_Handler
+C:\Users\Johann\AppData\Local\Temp\ccwIo0qI.s:135    .text:0000000a SysTick_Handler
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

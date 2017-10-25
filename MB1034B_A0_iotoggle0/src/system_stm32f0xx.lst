@@ -1,0 +1,1837 @@
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   4              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   5              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   6              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+   7              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+   8              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+   9              		.eabi_attribute 30, 4	@ Tag_ABI_optimization_goals
+  10              		.eabi_attribute 34, 0	@ Tag_CPU_unaligned_access
+  11              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  12              		.file	"system_stm32f0xx.c"
+  13              	@ GNU C (GCC) version 4.7.2 (arm-none-eabi)
+  14              	@	compiled by GNU C version 3.4.5 (mingw-vista special r3), GMP version 5.0.4, MPFR version 2.4.2, 
+  15              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  16              	@ options passed:  -I .
+  17              	@ -I ..\STM32F0-Discovery_FW_V1.0.0\Libraries\CMSIS\ST\STM32F0xx\Include
+  18              	@ -I ..\STM32F0-Discovery_FW_V1.0.0\Libraries\CMSIS\Include
+  19              	@ -I ..\STM32F0-Discovery_FW_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\inc
+  20              	@ -I ..\STM32F0-Discovery_FW_V1.0.0\Utilities\STM32F0-Discovery -I .\inc
+  21              	@ -imultilib thumb/v6m
+  22              	@ -iprefix c:\yagarto-20121222\bin\../lib/gcc/arm-none-eabi/4.7.2/
+  23              	@ -MD .\src\system_stm32f0xx.d -MF .dep\system_stm32f0xx.o.d -MP
+  24              	@ -MQ .\src\system_stm32f0xx.o -D__USES_INITFINI__ -D STM32F0XX
+  25              	@ -D USE_STDPERIPH_DRIVER -D RUN_FROM_FLASH=1 .\src\system_stm32f0xx.c
+  26              	@ -mcpu=cortex-m0 -mthumb -auxbase-strip .\src\system_stm32f0xx.o -gdwarf-2
+  27              	@ -Os -Wall -Wstrict-prototypes -fomit-frame-pointer -fverbose-asm
+  28              	@ options enabled:  -fauto-inc-dec -fbranch-count-reg -fcaller-saves
+  29              	@ -fcombine-stack-adjustments -fcommon -fcompare-elim -fcprop-registers
+  30              	@ -fcrossjumping -fcse-follow-jumps -fdebug-types-section -fdefer-pop
+  31              	@ -fdelete-null-pointer-checks -fdevirtualize -fdwarf2-cfi-asm
+  32              	@ -fearly-inlining -feliminate-unused-debug-types -fexpensive-optimizations
+  33              	@ -fforward-propagate -ffunction-cse -fgcse -fgcse-lm -fgnu-runtime
+  34              	@ -fguess-branch-probability -fident -fif-conversion -fif-conversion2
+  35              	@ -findirect-inlining -finline -finline-atomics -finline-functions
+  36              	@ -finline-functions-called-once -finline-small-functions -fipa-cp
+  37              	@ -fipa-profile -fipa-pure-const -fipa-reference -fipa-sra
+  38              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  39              	@ -fkeep-static-consts -fleading-underscore -fmath-errno -fmerge-constants
+  40              	@ -fmerge-debug-strings -fmove-loop-invariants -fomit-frame-pointer
+  41              	@ -foptimize-register-move -foptimize-sibling-calls -fpartial-inlining
+  42              	@ -fpeephole -fpeephole2 -fprefetch-loop-arrays -freg-struct-return
+  43              	@ -fregmove -freorder-blocks -freorder-functions -frerun-cse-after-loop
+  44              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  45              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  46              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  47              	@ -fsched-stalled-insns-dep -fschedule-insns2 -fsection-anchors
+  48              	@ -fshow-column -fshrink-wrap -fsigned-zeros -fsplit-ivs-in-unroller
+  49              	@ -fsplit-wide-types -fstrict-aliasing -fstrict-overflow
+  50              	@ -fstrict-volatile-bitfields -fthread-jumps -ftoplevel-reorder
+  51              	@ -ftrapping-math -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp
+  52              	@ -ftree-ch -ftree-copy-prop -ftree-copyrename -ftree-cselim -ftree-dce
+  53              	@ -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-fre
+  54              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  55              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop -ftree-pre
+  56              	@ -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-sink
+  57              	@ -ftree-slp-vectorize -ftree-sra -ftree-switch-conversion
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 2
+
+
+  58              	@ -ftree-tail-merge -ftree-ter -ftree-vect-loop-version -ftree-vrp
+  59              	@ -funit-at-a-time -fvar-tracking -fvar-tracking-assignments -fverbose-asm
+  60              	@ -fzero-initialized-in-bss -mlittle-endian -msched-prolog -mthumb
+  61              	@ -mvectorize-with-neon-quad
+  62              	
+  63              		.text
+  64              	.Ltext0:
+  65              		.cfi_sections	.debug_frame
+  66              		.align	1
+  67              		.global	SystemInit
+  68              		.code	16
+  69              		.thumb_func
+  70              		.type	SystemInit, %function
+  71              	SystemInit:
+  72              	.LFB32:
+  73              		.file 1 ".\\src\\system_stm32f0xx.c"
+   1:.\src/system_stm32f0xx.c **** /**
+   2:.\src/system_stm32f0xx.c ****   ******************************************************************************
+   3:.\src/system_stm32f0xx.c ****   * @file    system_stm32f0xx.c
+   4:.\src/system_stm32f0xx.c ****   * @author  MCD Application Team
+   5:.\src/system_stm32f0xx.c ****   * @version V1.0.0
+   6:.\src/system_stm32f0xx.c ****   * @date    23-March-2012
+   7:.\src/system_stm32f0xx.c ****   * @brief   CMSIS Cortex-M0 Device Peripheral Access Layer System Source File.
+   8:.\src/system_stm32f0xx.c ****   *          This file contains the system clock configuration for STM32F0xx devices,
+   9:.\src/system_stm32f0xx.c ****   *          and is customized for use with STM32F0-DISCOVERY Kit. 
+  10:.\src/system_stm32f0xx.c ****   *          The STM32F0xx is configured to run at 48 MHz, following the three  
+  11:.\src/system_stm32f0xx.c ****   *          configuration below:
+  12:.\src/system_stm32f0xx.c ****   *            - PLL_SOURCE_HSI (default): HSI (~8MHz) used to clock the PLL, and
+  13:.\src/system_stm32f0xx.c ****   *                                        the PLL is used as system clock source.  
+  14:.\src/system_stm32f0xx.c ****   *            - PLL_SOURCE_HSE          : HSE (8MHz) used to clock the PLL, and 
+  15:.\src/system_stm32f0xx.c ****   *                                        the PLL is used as system clock source.
+  16:.\src/system_stm32f0xx.c ****   *            - PLL_SOURCE_HSE_BYPASS   : HSE bypassed with an external clock 
+  17:.\src/system_stm32f0xx.c ****   *                                        (8MHz, coming from ST-Link) used to clock
+  18:.\src/system_stm32f0xx.c ****   *                                        the PLL, and the PLL is used as system
+  19:.\src/system_stm32f0xx.c ****   *                                        clock source.  
+  20:.\src/system_stm32f0xx.c ****   *
+  21:.\src/system_stm32f0xx.c ****   *  
+  22:.\src/system_stm32f0xx.c ****   * 1.  This file provides two functions and one global variable to be called from 
+  23:.\src/system_stm32f0xx.c ****   *     user application:
+  24:.\src/system_stm32f0xx.c ****   *      - SystemInit(): Setups the system clock (System clock source, PLL Multiplier
+  25:.\src/system_stm32f0xx.c ****   *                      and Divider factors, AHB/APBx prescalers and Flash settings),
+  26:.\src/system_stm32f0xx.c ****   *                      depending on the configuration selected (see above).
+  27:.\src/system_stm32f0xx.c ****   *                      This function is called at startup just after reset and 
+  28:.\src/system_stm32f0xx.c ****   *                      before branch to main program. This call is made inside
+  29:.\src/system_stm32f0xx.c ****   *                      the "startup_stm32f0xx.s" file.
+  30:.\src/system_stm32f0xx.c ****   *
+  31:.\src/system_stm32f0xx.c ****   *      - SystemCoreClock variable: Contains the core clock (HCLK), it can be used
+  32:.\src/system_stm32f0xx.c ****   *                                  by the user application to setup the SysTick 
+  33:.\src/system_stm32f0xx.c ****   *                                  timer or configure other parameters.
+  34:.\src/system_stm32f0xx.c ****   *
+  35:.\src/system_stm32f0xx.c ****   *      - SystemCoreClockUpdate(): Updates the variable SystemCoreClock and must
+  36:.\src/system_stm32f0xx.c ****   *                                 be called whenever the core clock is changed
+  37:.\src/system_stm32f0xx.c ****   *                                 during program execution.
+  38:.\src/system_stm32f0xx.c ****   *
+  39:.\src/system_stm32f0xx.c ****   * 2. After each device reset the HSI (8 MHz Range) is used as system clock source.
+  40:.\src/system_stm32f0xx.c ****   *    Then SystemInit() function is called, in "startup_stm32f0xx.s" file, to
+  41:.\src/system_stm32f0xx.c ****   *    configure the system clock before to branch to main program.
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 3
+
+
+  42:.\src/system_stm32f0xx.c ****   *
+  43:.\src/system_stm32f0xx.c ****   * 3. If the system clock source selected by user fails to startup, the SystemInit()
+  44:.\src/system_stm32f0xx.c ****   *    function will do nothing and HSI still used as system clock source. User can 
+  45:.\src/system_stm32f0xx.c ****   *    add some code to deal with this issue inside the SetSysClock() function.
+  46:.\src/system_stm32f0xx.c ****   *
+  47:.\src/system_stm32f0xx.c ****   * 4. The default value of HSE crystal is set to 8MHz, refer to "HSE_VALUE" define
+  48:.\src/system_stm32f0xx.c ****   *    in "stm32f0xx.h" file. When HSE is used as system clock source, directly or
+  49:.\src/system_stm32f0xx.c ****   *    through PLL, and you are using different crystal you have to adapt the HSE
+  50:.\src/system_stm32f0xx.c ****   *    value to your own configuration.
+  51:.\src/system_stm32f0xx.c ****   *
+  52:.\src/system_stm32f0xx.c ****   ******************************************************************************
+  53:.\src/system_stm32f0xx.c ****   * @attention
+  54:.\src/system_stm32f0xx.c ****   *
+  55:.\src/system_stm32f0xx.c ****   * <h2><center>&copy; COPYRIGHT 2012 STMicroelectronics</center></h2>
+  56:.\src/system_stm32f0xx.c ****   *
+  57:.\src/system_stm32f0xx.c ****   * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
+  58:.\src/system_stm32f0xx.c ****   * You may not use this file except in compliance with the License.
+  59:.\src/system_stm32f0xx.c ****   * You may obtain a copy of the License at:
+  60:.\src/system_stm32f0xx.c ****   *
+  61:.\src/system_stm32f0xx.c ****   *        http://www.st.com/software_license_agreement_liberty_v2
+  62:.\src/system_stm32f0xx.c ****   *
+  63:.\src/system_stm32f0xx.c ****   * Unless required by applicable law or agreed to in writing, software 
+  64:.\src/system_stm32f0xx.c ****   * distributed under the License is distributed on an "AS IS" BASIS, 
+  65:.\src/system_stm32f0xx.c ****   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  66:.\src/system_stm32f0xx.c ****   * See the License for the specific language governing permissions and
+  67:.\src/system_stm32f0xx.c ****   * limitations under the License.
+  68:.\src/system_stm32f0xx.c ****   *
+  69:.\src/system_stm32f0xx.c ****   ******************************************************************************
+  70:.\src/system_stm32f0xx.c ****   */
+  71:.\src/system_stm32f0xx.c **** 
+  72:.\src/system_stm32f0xx.c **** /** @addtogroup CMSIS
+  73:.\src/system_stm32f0xx.c ****   * @{
+  74:.\src/system_stm32f0xx.c ****   */
+  75:.\src/system_stm32f0xx.c **** 
+  76:.\src/system_stm32f0xx.c **** /** @addtogroup stm32f0xx_system
+  77:.\src/system_stm32f0xx.c ****   * @{
+  78:.\src/system_stm32f0xx.c ****   */  
+  79:.\src/system_stm32f0xx.c ****   
+  80:.\src/system_stm32f0xx.c **** /** @addtogroup STM32F0xx_System_Private_Includes
+  81:.\src/system_stm32f0xx.c ****   * @{
+  82:.\src/system_stm32f0xx.c ****   */
+  83:.\src/system_stm32f0xx.c **** 
+  84:.\src/system_stm32f0xx.c **** #include "stm32f0xx.h"
+  85:.\src/system_stm32f0xx.c **** 
+  86:.\src/system_stm32f0xx.c **** /**
+  87:.\src/system_stm32f0xx.c ****   * @}
+  88:.\src/system_stm32f0xx.c ****   */
+  89:.\src/system_stm32f0xx.c **** 
+  90:.\src/system_stm32f0xx.c **** /** @addtogroup STM32F0xx_System_Private_TypesDefinitions
+  91:.\src/system_stm32f0xx.c ****   * @{
+  92:.\src/system_stm32f0xx.c ****   */
+  93:.\src/system_stm32f0xx.c **** 
+  94:.\src/system_stm32f0xx.c **** /**
+  95:.\src/system_stm32f0xx.c ****   * @}
+  96:.\src/system_stm32f0xx.c ****   */
+  97:.\src/system_stm32f0xx.c **** 
+  98:.\src/system_stm32f0xx.c **** /** @addtogroup STM32F0xx_System_Private_Defines
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 4
+
+
+  99:.\src/system_stm32f0xx.c ****   * @{
+ 100:.\src/system_stm32f0xx.c ****   */
+ 101:.\src/system_stm32f0xx.c **** /* Select the PLL clock source */
+ 102:.\src/system_stm32f0xx.c **** 
+ 103:.\src/system_stm32f0xx.c **** #define PLL_SOURCE_HSI        // HSI (~8MHz) used to clock the PLL, and the PLL is used as system c
+ 104:.\src/system_stm32f0xx.c **** //#define PLL_SOURCE_HSE        // HSE (8MHz) used to clock the PLL, and the PLL is used as system 
+ 105:.\src/system_stm32f0xx.c **** //#define PLL_SOURCE_HSE_BYPASS // HSE bypassed with an external clock (8MHz, coming from ST-Link) 
+ 106:.\src/system_stm32f0xx.c ****                               // the PLL, and the PLL is used as system clock source
+ 107:.\src/system_stm32f0xx.c **** 
+ 108:.\src/system_stm32f0xx.c **** /**
+ 109:.\src/system_stm32f0xx.c ****   * @}
+ 110:.\src/system_stm32f0xx.c ****   */
+ 111:.\src/system_stm32f0xx.c **** 
+ 112:.\src/system_stm32f0xx.c **** /** @addtogroup STM32F0xx_System_Private_Macros
+ 113:.\src/system_stm32f0xx.c ****   * @{
+ 114:.\src/system_stm32f0xx.c ****   */
+ 115:.\src/system_stm32f0xx.c **** 
+ 116:.\src/system_stm32f0xx.c **** /**
+ 117:.\src/system_stm32f0xx.c ****   * @}
+ 118:.\src/system_stm32f0xx.c ****   */
+ 119:.\src/system_stm32f0xx.c **** 
+ 120:.\src/system_stm32f0xx.c **** /** @addtogroup STM32F0xx_System_Private_Variables
+ 121:.\src/system_stm32f0xx.c ****   * @{
+ 122:.\src/system_stm32f0xx.c ****   */
+ 123:.\src/system_stm32f0xx.c **** uint32_t SystemCoreClock    = 48000000;
+ 124:.\src/system_stm32f0xx.c **** __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+ 125:.\src/system_stm32f0xx.c **** 
+ 126:.\src/system_stm32f0xx.c **** /**
+ 127:.\src/system_stm32f0xx.c ****   * @}
+ 128:.\src/system_stm32f0xx.c ****   */
+ 129:.\src/system_stm32f0xx.c **** 
+ 130:.\src/system_stm32f0xx.c **** /** @addtogroup STM32F0xx_System_Private_FunctionPrototypes
+ 131:.\src/system_stm32f0xx.c ****   * @{
+ 132:.\src/system_stm32f0xx.c ****   */
+ 133:.\src/system_stm32f0xx.c **** 
+ 134:.\src/system_stm32f0xx.c **** static void SetSysClock(void);
+ 135:.\src/system_stm32f0xx.c **** 
+ 136:.\src/system_stm32f0xx.c **** /**
+ 137:.\src/system_stm32f0xx.c ****   * @}
+ 138:.\src/system_stm32f0xx.c ****   */
+ 139:.\src/system_stm32f0xx.c **** 
+ 140:.\src/system_stm32f0xx.c **** /** @addtogroup STM32F0xx_System_Private_Functions
+ 141:.\src/system_stm32f0xx.c ****   * @{
+ 142:.\src/system_stm32f0xx.c ****   */
+ 143:.\src/system_stm32f0xx.c **** 
+ 144:.\src/system_stm32f0xx.c **** /**
+ 145:.\src/system_stm32f0xx.c ****   * @brief  Setup the microcontroller system.
+ 146:.\src/system_stm32f0xx.c ****   *         Initialize the Embedded Flash Interface, the PLL and update the 
+ 147:.\src/system_stm32f0xx.c ****   *         SystemCoreClock variable.
+ 148:.\src/system_stm32f0xx.c ****   * @param  None
+ 149:.\src/system_stm32f0xx.c ****   * @retval None
+ 150:.\src/system_stm32f0xx.c ****   */
+ 151:.\src/system_stm32f0xx.c **** void SystemInit (void)
+ 152:.\src/system_stm32f0xx.c **** {    
+  74              		.loc 1 152 0
+  75              		.cfi_startproc
+ 153:.\src/system_stm32f0xx.c ****   /* Set HSION bit */
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 5
+
+
+ 154:.\src/system_stm32f0xx.c ****   RCC->CR |= (uint32_t)0x00000001;
+  76              		.loc 1 154 0
+  77 0000 264B     		ldr	r3, .L9	@ tmp166,
+ 152:.\src/system_stm32f0xx.c **** {    
+  78              		.loc 1 152 0
+  79 0002 13B5     		push	{r0, r1, r4, lr}	@
+  80              	.LCFI0:
+  81              		.cfi_def_cfa_offset 16
+  82              		.cfi_offset 0, -16
+  83              		.cfi_offset 1, -12
+  84              		.cfi_offset 4, -8
+  85              		.cfi_offset 14, -4
+  86              		.loc 1 154 0
+  87 0004 1968     		ldr	r1, [r3]	@ D.4809, MEM[(struct RCC_TypeDef *)1073876992B].CR
+  88 0006 0122     		mov	r2, #1	@ tmp167,
+  89 0008 1143     		orr	r1, r2	@ D.4810, tmp167
+  90 000a 1960     		str	r1, [r3]	@ D.4810, MEM[(struct RCC_TypeDef *)1073876992B].CR
+ 155:.\src/system_stm32f0xx.c **** 
+ 156:.\src/system_stm32f0xx.c ****   /* Reset SW[1:0], HPRE[3:0], PPRE[2:0], ADCPRE and MCOSEL[2:0] bits */
+ 157:.\src/system_stm32f0xx.c ****   RCC->CFGR &= (uint32_t)0xF8FFB80C;
+  91              		.loc 1 157 0
+  92 000c 5868     		ldr	r0, [r3, #4]	@ D.4811, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+  93 000e 2449     		ldr	r1, .L9+4	@ tmp170,
+ 158:.\src/system_stm32f0xx.c ****   
+ 159:.\src/system_stm32f0xx.c ****   /* Reset HSEON, CSSON and PLLON bits */
+ 160:.\src/system_stm32f0xx.c ****   RCC->CR &= (uint32_t)0xFEF6FFFF;
+ 161:.\src/system_stm32f0xx.c **** 
+ 162:.\src/system_stm32f0xx.c ****   /* Reset HSEBYP bit */
+ 163:.\src/system_stm32f0xx.c ****   RCC->CR &= (uint32_t)0xFFFBFFFF;
+ 164:.\src/system_stm32f0xx.c **** 
+ 165:.\src/system_stm32f0xx.c ****   /* Reset PLLSRC, PLLXTPRE and PLLMUL[3:0] bits */
+ 166:.\src/system_stm32f0xx.c ****   RCC->CFGR &= (uint32_t)0xFFC0FFFF;
+ 167:.\src/system_stm32f0xx.c **** 
+ 168:.\src/system_stm32f0xx.c ****   /* Reset PREDIV1[3:0] bits */
+ 169:.\src/system_stm32f0xx.c ****   RCC->CFGR2 &= (uint32_t)0xFFFFFFF0;
+  94              		.loc 1 169 0
+  95 0010 0F24     		mov	r4, #15	@ tmp182,
+ 157:.\src/system_stm32f0xx.c ****   RCC->CFGR &= (uint32_t)0xF8FFB80C;
+  96              		.loc 1 157 0
+  97 0012 0140     		and	r1, r0	@ D.4812, D.4811
+  98 0014 5960     		str	r1, [r3, #4]	@ D.4812, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 160:.\src/system_stm32f0xx.c ****   RCC->CR &= (uint32_t)0xFEF6FFFF;
+  99              		.loc 1 160 0
+ 100 0016 1868     		ldr	r0, [r3]	@ D.4813, MEM[(struct RCC_TypeDef *)1073876992B].CR
+ 101 0018 2249     		ldr	r1, .L9+8	@ tmp173,
+ 102 001a 0140     		and	r1, r0	@ D.4814, D.4813
+ 103 001c 1960     		str	r1, [r3]	@ D.4814, MEM[(struct RCC_TypeDef *)1073876992B].CR
+ 163:.\src/system_stm32f0xx.c ****   RCC->CR &= (uint32_t)0xFFFBFFFF;
+ 104              		.loc 1 163 0
+ 105 001e 1868     		ldr	r0, [r3]	@ D.4815, MEM[(struct RCC_TypeDef *)1073876992B].CR
+ 106 0020 2149     		ldr	r1, .L9+12	@ tmp176,
+ 107 0022 0140     		and	r1, r0	@ D.4816, D.4815
+ 108 0024 1960     		str	r1, [r3]	@ D.4816, MEM[(struct RCC_TypeDef *)1073876992B].CR
+ 166:.\src/system_stm32f0xx.c ****   RCC->CFGR &= (uint32_t)0xFFC0FFFF;
+ 109              		.loc 1 166 0
+ 110 0026 5868     		ldr	r0, [r3, #4]	@ D.4817, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 111 0028 2049     		ldr	r1, .L9+16	@ tmp179,
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 6
+
+
+ 112 002a 0840     		and	r0, r1	@ D.4818, tmp179
+ 113 002c 5860     		str	r0, [r3, #4]	@ D.4818, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 114              		.loc 1 169 0
+ 115 002e D86A     		ldr	r0, [r3, #44]	@ D.4819, MEM[(struct RCC_TypeDef *)1073876992B].CFGR2
+ 116 0030 A043     		bic	r0, r4	@ D.4820, tmp182
+ 117 0032 D862     		str	r0, [r3, #44]	@ D.4820, MEM[(struct RCC_TypeDef *)1073876992B].CFGR2
+ 170:.\src/system_stm32f0xx.c **** 
+ 171:.\src/system_stm32f0xx.c ****   /* Reset USARTSW[1:0], I2CSW, CECSW and ADCSW bits */
+ 172:.\src/system_stm32f0xx.c ****   RCC->CFGR3 &= (uint32_t)0xFFFFFEAC;
+ 118              		.loc 1 172 0
+ 119 0034 1C6B     		ldr	r4, [r3, #48]	@ D.4821, MEM[(struct RCC_TypeDef *)1073876992B].CFGR3
+ 120 0036 1E48     		ldr	r0, .L9+20	@ tmp185,
+ 121 0038 2040     		and	r0, r4	@ D.4822, D.4821
+ 122 003a 1863     		str	r0, [r3, #48]	@ D.4822, MEM[(struct RCC_TypeDef *)1073876992B].CFGR3
+ 173:.\src/system_stm32f0xx.c **** 
+ 174:.\src/system_stm32f0xx.c ****   /* Reset HSI14 bit */
+ 175:.\src/system_stm32f0xx.c ****   RCC->CR2 &= (uint32_t)0xFFFFFFFE;
+ 123              		.loc 1 175 0
+ 124 003c 586B     		ldr	r0, [r3, #52]	@ D.4823, MEM[(struct RCC_TypeDef *)1073876992B].CR2
+ 125 003e 9043     		bic	r0, r2	@ D.4823, tmp167
+ 176:.\src/system_stm32f0xx.c **** 
+ 177:.\src/system_stm32f0xx.c ****   /* Disable all interrupts */
+ 178:.\src/system_stm32f0xx.c ****   RCC->CIR = 0x00000000;
+ 126              		.loc 1 178 0
+ 127 0040 0022     		mov	r2, #0	@ tmp191,
+ 175:.\src/system_stm32f0xx.c ****   RCC->CR2 &= (uint32_t)0xFFFFFFFE;
+ 128              		.loc 1 175 0
+ 129 0042 5863     		str	r0, [r3, #52]	@ D.4824, MEM[(struct RCC_TypeDef *)1073876992B].CR2
+ 130              		.loc 1 178 0
+ 131 0044 9A60     		str	r2, [r3, #8]	@ tmp191, MEM[(struct RCC_TypeDef *)1073876992B].CIR
+ 132              	.LBB4:
+ 133              	.LBB5:
+ 179:.\src/system_stm32f0xx.c **** 
+ 180:.\src/system_stm32f0xx.c ****   /* Configure the System clock frequency, AHB/APBx prescalers and Flash settings */
+ 181:.\src/system_stm32f0xx.c ****   SetSysClock();
+ 182:.\src/system_stm32f0xx.c **** }
+ 183:.\src/system_stm32f0xx.c **** 
+ 184:.\src/system_stm32f0xx.c **** /**
+ 185:.\src/system_stm32f0xx.c ****   * @brief  Update SystemCoreClock according to Clock Register Values
+ 186:.\src/system_stm32f0xx.c ****   *         The SystemCoreClock variable contains the core clock (HCLK), it can
+ 187:.\src/system_stm32f0xx.c ****   *         be used by the user application to setup the SysTick timer or configure
+ 188:.\src/system_stm32f0xx.c ****   *         other parameters.
+ 189:.\src/system_stm32f0xx.c ****   *
+ 190:.\src/system_stm32f0xx.c ****   * @note   Each time the core clock (HCLK) changes, this function must be called
+ 191:.\src/system_stm32f0xx.c ****   *         to update SystemCoreClock variable value. Otherwise, any configuration
+ 192:.\src/system_stm32f0xx.c ****   *         based on this variable will be incorrect.         
+ 193:.\src/system_stm32f0xx.c ****   *
+ 194:.\src/system_stm32f0xx.c ****   * @note   - The system frequency computed by this function is not the real 
+ 195:.\src/system_stm32f0xx.c ****   *           frequency in the chip. It is calculated based on the predefined 
+ 196:.\src/system_stm32f0xx.c ****   *           constant and the selected clock source:
+ 197:.\src/system_stm32f0xx.c ****   *
+ 198:.\src/system_stm32f0xx.c ****   *           - If SYSCLK source is HSI, SystemCoreClock will contain the HSI_VALUE(*)
+ 199:.\src/system_stm32f0xx.c ****   *                                              
+ 200:.\src/system_stm32f0xx.c ****   *           - If SYSCLK source is HSE, SystemCoreClock will contain the HSE_VALUE(**)
+ 201:.\src/system_stm32f0xx.c ****   *                          
+ 202:.\src/system_stm32f0xx.c ****   *           - If SYSCLK source is PLL, SystemCoreClock will contain the HSE_VALUE(**)
+ 203:.\src/system_stm32f0xx.c ****   *             or HSI_VALUE(*) multiplied/divided by the PLL factors.
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 7
+
+
+ 204:.\src/system_stm32f0xx.c ****   *
+ 205:.\src/system_stm32f0xx.c ****   *         (*) HSI_VALUE is a constant defined in stm32f0xx.h file (default value
+ 206:.\src/system_stm32f0xx.c ****   *             8 MHz) but the real value may vary depending on the variations
+ 207:.\src/system_stm32f0xx.c ****   *             in voltage and temperature.
+ 208:.\src/system_stm32f0xx.c ****   *
+ 209:.\src/system_stm32f0xx.c ****   *         (**) HSE_VALUE is a constant defined in stm32f0xx.h file (default value
+ 210:.\src/system_stm32f0xx.c ****   *              8 MHz), user has to ensure that HSE_VALUE is same as the real
+ 211:.\src/system_stm32f0xx.c ****   *              frequency of the crystal used. Otherwise, this function may
+ 212:.\src/system_stm32f0xx.c ****   *              have wrong result.
+ 213:.\src/system_stm32f0xx.c ****   *
+ 214:.\src/system_stm32f0xx.c ****   *         - The result of this function could be not correct when using fractional
+ 215:.\src/system_stm32f0xx.c ****   *           value for HSE crystal.
+ 216:.\src/system_stm32f0xx.c ****   * @param  None
+ 217:.\src/system_stm32f0xx.c ****   * @retval None
+ 218:.\src/system_stm32f0xx.c ****   */
+ 219:.\src/system_stm32f0xx.c **** void SystemCoreClockUpdate (void)
+ 220:.\src/system_stm32f0xx.c **** {
+ 221:.\src/system_stm32f0xx.c ****   uint32_t tmp = 0, pllmull = 0, pllsource = 0, prediv1factor = 0;
+ 222:.\src/system_stm32f0xx.c **** 
+ 223:.\src/system_stm32f0xx.c ****   /* Get SYSCLK source -------------------------------------------------------*/
+ 224:.\src/system_stm32f0xx.c ****   tmp = RCC->CFGR & RCC_CFGR_SWS;
+ 225:.\src/system_stm32f0xx.c ****   
+ 226:.\src/system_stm32f0xx.c ****   switch (tmp)
+ 227:.\src/system_stm32f0xx.c ****   {
+ 228:.\src/system_stm32f0xx.c ****     case 0x00:  /* HSI used as system clock */
+ 229:.\src/system_stm32f0xx.c ****       SystemCoreClock = HSI_VALUE;
+ 230:.\src/system_stm32f0xx.c ****       break;
+ 231:.\src/system_stm32f0xx.c ****     case 0x04:  /* HSE used as system clock */
+ 232:.\src/system_stm32f0xx.c ****       SystemCoreClock = HSE_VALUE;
+ 233:.\src/system_stm32f0xx.c ****       break;
+ 234:.\src/system_stm32f0xx.c ****     case 0x08:  /* PLL used as system clock */
+ 235:.\src/system_stm32f0xx.c ****       /* Get PLL clock source and multiplication factor ----------------------*/
+ 236:.\src/system_stm32f0xx.c ****       pllmull = RCC->CFGR & RCC_CFGR_PLLMULL;
+ 237:.\src/system_stm32f0xx.c ****       pllsource = RCC->CFGR & RCC_CFGR_PLLSRC;
+ 238:.\src/system_stm32f0xx.c ****       pllmull = ( pllmull >> 18) + 2;
+ 239:.\src/system_stm32f0xx.c ****       
+ 240:.\src/system_stm32f0xx.c ****       if (pllsource == 0x00)
+ 241:.\src/system_stm32f0xx.c ****       {
+ 242:.\src/system_stm32f0xx.c ****         /* HSI oscillator clock divided by 2 selected as PLL clock entry */
+ 243:.\src/system_stm32f0xx.c ****         SystemCoreClock = (HSI_VALUE >> 1) * pllmull;
+ 244:.\src/system_stm32f0xx.c ****       }
+ 245:.\src/system_stm32f0xx.c ****       else
+ 246:.\src/system_stm32f0xx.c ****       {
+ 247:.\src/system_stm32f0xx.c ****         prediv1factor = (RCC->CFGR2 & RCC_CFGR2_PREDIV1) + 1;
+ 248:.\src/system_stm32f0xx.c ****         /* HSE oscillator clock selected as PREDIV1 clock entry */
+ 249:.\src/system_stm32f0xx.c ****         SystemCoreClock = (HSE_VALUE / prediv1factor) * pllmull; 
+ 250:.\src/system_stm32f0xx.c ****       }      
+ 251:.\src/system_stm32f0xx.c ****       break;
+ 252:.\src/system_stm32f0xx.c ****     default: /* HSI used as system clock */
+ 253:.\src/system_stm32f0xx.c ****       SystemCoreClock = HSI_VALUE;
+ 254:.\src/system_stm32f0xx.c ****       break;
+ 255:.\src/system_stm32f0xx.c ****   }
+ 256:.\src/system_stm32f0xx.c ****   /* Compute HCLK clock frequency ----------------*/
+ 257:.\src/system_stm32f0xx.c ****   /* Get HCLK prescaler */
+ 258:.\src/system_stm32f0xx.c ****   tmp = AHBPrescTable[((RCC->CFGR & RCC_CFGR_HPRE) >> 4)];
+ 259:.\src/system_stm32f0xx.c ****   /* HCLK clock frequency */
+ 260:.\src/system_stm32f0xx.c ****   SystemCoreClock >>= tmp;  
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 8
+
+
+ 261:.\src/system_stm32f0xx.c **** }
+ 262:.\src/system_stm32f0xx.c **** 
+ 263:.\src/system_stm32f0xx.c **** /**
+ 264:.\src/system_stm32f0xx.c ****   * @brief  Configures the System clock frequency, AHB/APBx prescalers and Flash
+ 265:.\src/system_stm32f0xx.c ****   *         settings.
+ 266:.\src/system_stm32f0xx.c ****   * @note   This function should be called only once the RCC clock configuration
+ 267:.\src/system_stm32f0xx.c ****   *         is reset to the default reset state (done in SystemInit() function).
+ 268:.\src/system_stm32f0xx.c ****   * @param  None
+ 269:.\src/system_stm32f0xx.c ****   * @retval None
+ 270:.\src/system_stm32f0xx.c ****   */
+ 271:.\src/system_stm32f0xx.c **** static void SetSysClock(void)
+ 272:.\src/system_stm32f0xx.c **** {
+ 273:.\src/system_stm32f0xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ 134              		.loc 1 273 0
+ 135 0046 0092     		str	r2, [sp]	@ tmp191, StartUpCounter
+ 136              	.LVL0:
+ 137 0048 0192     		str	r2, [sp, #4]	@ tmp191, HSEStatus
+ 138              	.LVL1:
+ 274:.\src/system_stm32f0xx.c ****   
+ 275:.\src/system_stm32f0xx.c ****   /* SYSCLK, HCLK, PCLK configuration ----------------------------------------*/
+ 276:.\src/system_stm32f0xx.c **** #if defined (PLL_SOURCE_HSI)
+ 277:.\src/system_stm32f0xx.c ****   /* At this stage the HSI is already enabled */
+ 278:.\src/system_stm32f0xx.c **** 
+ 279:.\src/system_stm32f0xx.c ****   /* Enable Prefetch Buffer and set Flash Latency */
+ 280:.\src/system_stm32f0xx.c ****   FLASH->ACR = FLASH_ACR_PRFTBE | FLASH_ACR_LATENCY;
+ 139              		.loc 1 280 0
+ 140 004a 1A4A     		ldr	r2, .L9+24	@ tmp194,
+ 141 004c 1120     		mov	r0, #17	@ tmp195,
+ 142 004e 1060     		str	r0, [r2]	@ tmp195, MEM[(struct FLASH_TypeDef *)1073881088B].ACR
+ 281:.\src/system_stm32f0xx.c ****  
+ 282:.\src/system_stm32f0xx.c ****   /* HCLK = SYSCLK */
+ 283:.\src/system_stm32f0xx.c ****   RCC->CFGR |= (uint32_t)RCC_CFGR_HPRE_DIV1;
+ 143              		.loc 1 283 0
+ 144 0050 5A68     		ldr	r2, [r3, #4]	@ D.4866, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 145 0052 5A60     		str	r2, [r3, #4]	@ D.4866, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 284:.\src/system_stm32f0xx.c ****       
+ 285:.\src/system_stm32f0xx.c ****   /* PCLK = HCLK */
+ 286:.\src/system_stm32f0xx.c ****   RCC->CFGR |= (uint32_t)RCC_CFGR_PPRE_DIV1;
+ 146              		.loc 1 286 0
+ 147 0054 5A68     		ldr	r2, [r3, #4]	@ D.4865, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 148 0056 5A60     		str	r2, [r3, #4]	@ D.4865, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 287:.\src/system_stm32f0xx.c **** 
+ 288:.\src/system_stm32f0xx.c ****   /* PLL configuration = (HSI/2) * 12 = ~48 MHz */
+ 289:.\src/system_stm32f0xx.c ****   RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_PLLSRC | RCC_CFGR_PLLXTPRE | RCC_CFGR_PLLMULL));
+ 149              		.loc 1 289 0
+ 150 0058 5A68     		ldr	r2, [r3, #4]	@ D.4864, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 151 005a 1140     		and	r1, r2	@ D.4863, D.4864
+ 152 005c 5960     		str	r1, [r3, #4]	@ D.4863, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 290:.\src/system_stm32f0xx.c ****   RCC->CFGR |= (uint32_t)(RCC_CFGR_PLLSRC_HSI_Div2 | RCC_CFGR_PLLXTPRE_PREDIV1 | RCC_CFGR_PLLMULL12
+ 153              		.loc 1 290 0
+ 154 005e 5968     		ldr	r1, [r3, #4]	@ D.4862, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 155 0060 A022     		mov	r2, #160	@ tmp225,
+ 156 0062 9203     		lsl	r2, r2, #14	@ tmp204, tmp225,
+ 157 0064 0A43     		orr	r2, r1	@ D.4861, D.4862
+ 158 0066 5A60     		str	r2, [r3, #4]	@ D.4861, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 291:.\src/system_stm32f0xx.c ****             
+ 292:.\src/system_stm32f0xx.c ****   /* Enable PLL */
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 9
+
+
+ 293:.\src/system_stm32f0xx.c ****   RCC->CR |= RCC_CR_PLLON;
+ 159              		.loc 1 293 0
+ 160 0068 1968     		ldr	r1, [r3]	@ D.4860, MEM[(struct RCC_TypeDef *)1073876992B].CR
+ 161 006a 8022     		mov	r2, #128	@ tmp226,
+ 162 006c 8240     		lsl	r2, r2, r0	@ tmp207, tmp226,
+ 163 006e 0A43     		orr	r2, r1	@ D.4859, D.4860
+ 294:.\src/system_stm32f0xx.c **** 
+ 295:.\src/system_stm32f0xx.c ****   /* Wait till PLL is ready */
+ 296:.\src/system_stm32f0xx.c ****   while((RCC->CR & RCC_CR_PLLRDY) == 0)
+ 164              		.loc 1 296 0
+ 165 0070 8021     		mov	r1, #128	@ tmp227,
+ 293:.\src/system_stm32f0xx.c ****   RCC->CR |= RCC_CR_PLLON;
+ 166              		.loc 1 293 0
+ 167 0072 1A60     		str	r2, [r3]	@ D.4859, MEM[(struct RCC_TypeDef *)1073876992B].CR
+ 168              		.loc 1 296 0
+ 169 0074 8904     		lsl	r1, r1, #18	@ tmp224, tmp227,
+ 170              	.L2:
+ 171 0076 1868     		ldr	r0, [r3]	@ D.4858, MEM[(struct RCC_TypeDef *)1073876992B].CR
+ 172 0078 084A     		ldr	r2, .L9	@ tmp209,
+ 173 007a 0842     		tst	r0, r1	@ D.4858, tmp224
+ 174 007c FBD0     		beq	.L2	@,
+ 297:.\src/system_stm32f0xx.c ****   {
+ 298:.\src/system_stm32f0xx.c ****   }
+ 299:.\src/system_stm32f0xx.c **** 
+ 300:.\src/system_stm32f0xx.c ****   /* Select PLL as system clock source */
+ 301:.\src/system_stm32f0xx.c ****   RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
+ 175              		.loc 1 301 0
+ 176 007e 5168     		ldr	r1, [r2, #4]	@ D.4856, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 177 0080 0320     		mov	r0, #3	@ tmp213,
+ 178 0082 8143     		bic	r1, r0	@ D.4855, tmp213
+ 179 0084 5160     		str	r1, [r2, #4]	@ D.4855, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 302:.\src/system_stm32f0xx.c ****   RCC->CFGR |= (uint32_t)RCC_CFGR_SW_PLL;    
+ 180              		.loc 1 302 0
+ 181 0086 5168     		ldr	r1, [r2, #4]	@ D.4854, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 182 0088 0220     		mov	r0, #2	@ tmp216,
+ 183 008a 0143     		orr	r1, r0	@ D.4853, tmp216
+ 184 008c 5160     		str	r1, [r2, #4]	@ D.4853, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 303:.\src/system_stm32f0xx.c **** 
+ 304:.\src/system_stm32f0xx.c ****   /* Wait till PLL is used as system clock source */
+ 305:.\src/system_stm32f0xx.c ****   while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS) != (uint32_t)RCC_CFGR_SWS_PLL)
+ 185              		.loc 1 305 0
+ 186 008e 0C21     		mov	r1, #12	@ tmp222,
+ 187              	.L3:
+ 188 0090 5A68     		ldr	r2, [r3, #4]	@ D.4852, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 189 0092 0A40     		and	r2, r1	@ tmp219, tmp222
+ 190 0094 082A     		cmp	r2, #8	@ tmp219,
+ 191 0096 FBD1     		bne	.L3	@,
+ 192              	.LBE5:
+ 193              	.LBE4:
+ 182:.\src/system_stm32f0xx.c **** }
+ 194              		.loc 1 182 0
+ 195              		@ sp needed for prologue	@
+ 196 0098 13BD     		pop	{r0, r1, r4, pc}
+ 197              	.L10:
+ 198 009a C046     		.align	2
+ 199              	.L9:
+ 200 009c 00100240 		.word	1073876992
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 10
+
+
+ 201 00a0 0CB8FFF8 		.word	-117458932
+ 202 00a4 FFFFF6FE 		.word	-17367041
+ 203 00a8 FFFFFBFF 		.word	-262145
+ 204 00ac FFFFC0FF 		.word	-4128769
+ 205 00b0 ACFEFFFF 		.word	-340
+ 206 00b4 00200240 		.word	1073881088
+ 207              		.cfi_endproc
+ 208              	.LFE32:
+ 209              		.size	SystemInit, .-SystemInit
+ 210              		.global	__aeabi_uidiv
+ 211              		.align	1
+ 212              		.global	SystemCoreClockUpdate
+ 213              		.code	16
+ 214              		.thumb_func
+ 215              		.type	SystemCoreClockUpdate, %function
+ 216              	SystemCoreClockUpdate:
+ 217              	.LFB33:
+ 220:.\src/system_stm32f0xx.c **** {
+ 218              		.loc 1 220 0
+ 219              		.cfi_startproc
+ 220              	.LVL2:
+ 221 00b8 70B5     		push	{r4, r5, r6, lr}	@
+ 222              	.LCFI1:
+ 223              		.cfi_def_cfa_offset 16
+ 224              		.cfi_offset 4, -16
+ 225              		.cfi_offset 5, -12
+ 226              		.cfi_offset 6, -8
+ 227              		.cfi_offset 14, -4
+ 224:.\src/system_stm32f0xx.c ****   tmp = RCC->CFGR & RCC_CFGR_SWS;
+ 228              		.loc 1 224 0
+ 229 00ba 144C     		ldr	r4, .L19	@ tmp155,
+ 230 00bc 0C23     		mov	r3, #12	@ tmp157,
+ 231 00be 6268     		ldr	r2, [r4, #4]	@ D.4789, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 232              	.LVL3:
+ 233 00c0 134D     		ldr	r5, .L19+4	@ tmp195,
+ 234 00c2 1340     		and	r3, r2	@ tmp156, D.4789
+ 235              	.LVL4:
+ 226:.\src/system_stm32f0xx.c ****   switch (tmp)
+ 236              		.loc 1 226 0
+ 237 00c4 042B     		cmp	r3, #4	@ tmp156,
+ 238 00c6 01D0     		beq	.L14	@,
+ 239 00c8 082B     		cmp	r3, #8	@ tmp156,
+ 240 00ca 02D0     		beq	.L15	@,
+ 241              	.L14:
+ 232:.\src/system_stm32f0xx.c ****       SystemCoreClock = HSE_VALUE;
+ 242              		.loc 1 232 0
+ 243 00cc 114B     		ldr	r3, .L19+8	@ tmp161,
+ 244              	.LVL5:
+ 245 00ce 2B60     		str	r3, [r5]	@ tmp161, SystemCoreClock
+ 233:.\src/system_stm32f0xx.c ****       break;
+ 246              		.loc 1 233 0
+ 247 00d0 12E0     		b	.L16	@
+ 248              	.LVL6:
+ 249              	.L15:
+ 236:.\src/system_stm32f0xx.c ****       pllmull = RCC->CFGR & RCC_CFGR_PLLMULL;
+ 250              		.loc 1 236 0
+ 251 00d2 6668     		ldr	r6, [r4, #4]	@ D.4790, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 11
+
+
+ 252              	.LVL7:
+ 237:.\src/system_stm32f0xx.c ****       pllsource = RCC->CFGR & RCC_CFGR_PLLSRC;
+ 253              		.loc 1 237 0
+ 254 00d4 6368     		ldr	r3, [r4, #4]	@ D.4791, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 255              	.LVL8:
+ 236:.\src/system_stm32f0xx.c ****       pllmull = RCC->CFGR & RCC_CFGR_PLLMULL;
+ 256              		.loc 1 236 0
+ 257 00d6 B602     		lsl	r6, r6, #10	@ tmp164, D.4790,
+ 258              	.LVL9:
+ 238:.\src/system_stm32f0xx.c ****       pllmull = ( pllmull >> 18) + 2;
+ 259              		.loc 1 238 0
+ 260 00d8 360F     		lsr	r6, r6, #28	@ D.4792, tmp164,
+ 261 00da 0236     		add	r6, r6, #2	@ pllmull,
+ 262              	.LVL10:
+ 240:.\src/system_stm32f0xx.c ****       if (pllsource == 0x00)
+ 263              		.loc 1 240 0
+ 264 00dc D903     		lsl	r1, r3, #15	@, D.4791,
+ 265 00de 02D4     		bmi	.L17	@,
+ 243:.\src/system_stm32f0xx.c ****         SystemCoreClock = (HSI_VALUE >> 1) * pllmull;
+ 266              		.loc 1 243 0
+ 267 00e0 0D4B     		ldr	r3, .L19+12	@ tmp170,
+ 268              	.LVL11:
+ 269 00e2 5E43     		mul	r6, r3	@ tmp169, tmp170
+ 270              	.LVL12:
+ 271 00e4 07E0     		b	.L18	@
+ 272              	.LVL13:
+ 273              	.L17:
+ 247:.\src/system_stm32f0xx.c ****         prediv1factor = (RCC->CFGR2 & RCC_CFGR2_PREDIV1) + 1;
+ 274              		.loc 1 247 0
+ 275 00e6 E16A     		ldr	r1, [r4, #44]	@ D.4797, MEM[(struct RCC_TypeDef *)1073876992B].CFGR2
+ 276              	.LVL14:
+ 277 00e8 0F23     		mov	r3, #15	@ tmp174,
+ 278              	.LVL15:
+ 279 00ea 1940     		and	r1, r3	@ tmp173, tmp174
+ 280              	.LVL16:
+ 281 00ec 0131     		add	r1, r1, #1	@ tmp175,
+ 282              	.LVL17:
+ 249:.\src/system_stm32f0xx.c ****         SystemCoreClock = (HSE_VALUE / prediv1factor) * pllmull; 
+ 283              		.loc 1 249 0
+ 284 00ee 0948     		ldr	r0, .L19+8	@,
+ 285 00f0 FFF7FEFF 		bl	__aeabi_uidiv	@
+ 286              	.LVL18:
+ 287 00f4 4643     		mul	r6, r0	@ tmp180, tmp179
+ 288              	.LVL19:
+ 289              	.L18:
+ 290 00f6 2E60     		str	r6, [r5]	@ tmp180, SystemCoreClock
+ 291              	.L16:
+ 258:.\src/system_stm32f0xx.c ****   tmp = AHBPrescTable[((RCC->CFGR & RCC_CFGR_HPRE) >> 4)];
+ 292              		.loc 1 258 0
+ 293 00f8 6268     		ldr	r2, [r4, #4]	@ D.4801, MEM[(struct RCC_TypeDef *)1073876992B].CFGR
+ 294 00fa 054B     		ldr	r3, .L19+4	@ tmp186,
+ 295 00fc 1206     		lsl	r2, r2, #24	@ tmp184, D.4801,
+ 296 00fe 120F     		lsr	r2, r2, #28	@ D.4803, tmp184,
+ 297 0100 9A18     		add	r2, r3, r2	@ tmp187, tmp186, D.4803
+ 298 0102 1279     		ldrb	r2, [r2, #4]	@ tmp189,
+ 299              	.LVL20:
+ 260:.\src/system_stm32f0xx.c ****   SystemCoreClock >>= tmp;  
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 12
+
+
+ 300              		.loc 1 260 0
+ 301 0104 1968     		ldr	r1, [r3]	@, SystemCoreClock
+ 261:.\src/system_stm32f0xx.c **** }
+ 302              		.loc 1 261 0
+ 303              		@ sp needed for prologue	@
+ 260:.\src/system_stm32f0xx.c ****   SystemCoreClock >>= tmp;  
+ 304              		.loc 1 260 0
+ 305 0106 D140     		lsr	r1, r1, r2	@,, tmp189
+ 306 0108 1960     		str	r1, [r3]	@ tmp192, SystemCoreClock
+ 261:.\src/system_stm32f0xx.c **** }
+ 307              		.loc 1 261 0
+ 308 010a 70BD     		pop	{r4, r5, r6, pc}
+ 309              	.L20:
+ 310              		.align	2
+ 311              	.L19:
+ 312 010c 00100240 		.word	1073876992
+ 313 0110 00000000 		.word	.LANCHOR0
+ 314 0114 00127A00 		.word	8000000
+ 315 0118 00093D00 		.word	4000000
+ 316              		.cfi_endproc
+ 317              	.LFE33:
+ 318              		.size	SystemCoreClockUpdate, .-SystemCoreClockUpdate
+ 319              		.global	AHBPrescTable
+ 320              		.global	SystemCoreClock
+ 321              		.data
+ 322              		.align	2
+ 323              		.set	.LANCHOR0,. + 0
+ 324              		.type	SystemCoreClock, %object
+ 325              		.size	SystemCoreClock, 4
+ 326              	SystemCoreClock:
+ 327 0000 006CDC02 		.word	48000000
+ 328              		.type	AHBPrescTable, %object
+ 329              		.size	AHBPrescTable, 16
+ 330              	AHBPrescTable:
+ 331 0004 00       		.byte	0
+ 332 0005 00       		.byte	0
+ 333 0006 00       		.byte	0
+ 334 0007 00       		.byte	0
+ 335 0008 00       		.byte	0
+ 336 0009 00       		.byte	0
+ 337 000a 00       		.byte	0
+ 338 000b 00       		.byte	0
+ 339 000c 01       		.byte	1
+ 340 000d 02       		.byte	2
+ 341 000e 03       		.byte	3
+ 342 000f 04       		.byte	4
+ 343 0010 06       		.byte	6
+ 344 0011 07       		.byte	7
+ 345 0012 08       		.byte	8
+ 346 0013 09       		.byte	9
+ 347              		.text
+ 348              	.Letext0:
+ 349              		.file 2 "c:/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h"
+ 350              		.file 3 "..\\STM32F0-Discovery_FW_V1.0.0\\Libraries\\CMSIS\\ST\\STM32F0xx\\Include/stm32f0xx.h"
+ 351              		.section	.debug_info,"",%progbits
+ 352              	.Ldebug_info0:
+ 353 0000 0C030000 		.4byte	0x30c
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 13
+
+
+ 354 0004 0200     		.2byte	0x2
+ 355 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 356 000a 04       		.byte	0x4
+ 357 000b 01       		.uleb128 0x1
+ 358 000c B6010000 		.4byte	.LASF37
+ 359 0010 01       		.byte	0x1
+ 360 0011 55010000 		.4byte	.LASF38
+ 361 0015 52000000 		.4byte	.LASF39
+ 362 0019 00000000 		.4byte	.Ltext0
+ 363 001d 1C010000 		.4byte	.Letext0
+ 364 0021 00000000 		.4byte	.Ldebug_line0
+ 365 0025 02       		.uleb128 0x2
+ 366 0026 01       		.byte	0x1
+ 367 0027 06       		.byte	0x6
+ 368 0028 EF010000 		.4byte	.LASF0
+ 369 002c 03       		.uleb128 0x3
+ 370 002d 41010000 		.4byte	.LASF5
+ 371 0031 02       		.byte	0x2
+ 372 0032 2A       		.byte	0x2a
+ 373 0033 37000000 		.4byte	0x37
+ 374 0037 02       		.uleb128 0x2
+ 375 0038 01       		.byte	0x1
+ 376 0039 08       		.byte	0x8
+ 377 003a DF000000 		.4byte	.LASF1
+ 378 003e 02       		.uleb128 0x2
+ 379 003f 02       		.byte	0x2
+ 380 0040 05       		.byte	0x5
+ 381 0041 C2010000 		.4byte	.LASF2
+ 382 0045 02       		.uleb128 0x2
+ 383 0046 02       		.byte	0x2
+ 384 0047 07       		.byte	0x7
+ 385 0048 C4000000 		.4byte	.LASF3
+ 386 004c 02       		.uleb128 0x2
+ 387 004d 04       		.byte	0x4
+ 388 004e 05       		.byte	0x5
+ 389 004f E1010000 		.4byte	.LASF4
+ 390 0053 03       		.uleb128 0x3
+ 391 0054 D8010000 		.4byte	.LASF6
+ 392 0058 02       		.byte	0x2
+ 393 0059 50       		.byte	0x50
+ 394 005a 5E000000 		.4byte	0x5e
+ 395 005e 02       		.uleb128 0x2
+ 396 005f 04       		.byte	0x4
+ 397 0060 07       		.byte	0x7
+ 398 0061 AC000000 		.4byte	.LASF7
+ 399 0065 02       		.uleb128 0x2
+ 400 0066 08       		.byte	0x8
+ 401 0067 05       		.byte	0x5
+ 402 0068 82010000 		.4byte	.LASF8
+ 403 006c 02       		.uleb128 0x2
+ 404 006d 08       		.byte	0x8
+ 405 006e 07       		.byte	0x7
+ 406 006f 2A010000 		.4byte	.LASF9
+ 407 0073 04       		.uleb128 0x4
+ 408 0074 04       		.byte	0x4
+ 409 0075 05       		.byte	0x5
+ 410 0076 696E7400 		.ascii	"int\000"
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 14
+
+
+ 411 007a 02       		.uleb128 0x2
+ 412 007b 04       		.byte	0x4
+ 413 007c 07       		.byte	0x7
+ 414 007d 1D010000 		.4byte	.LASF10
+ 415 0081 02       		.uleb128 0x2
+ 416 0082 04       		.byte	0x4
+ 417 0083 07       		.byte	0x7
+ 418 0084 79010000 		.4byte	.LASF11
+ 419 0088 05       		.uleb128 0x5
+ 420 0089 53000000 		.4byte	0x53
+ 421 008d 06       		.uleb128 0x6
+ 422 008e 24       		.byte	0x24
+ 423 008f 03       		.byte	0x3
+ 424 0090 6C01     		.2byte	0x16c
+ 425 0092 1B010000 		.4byte	0x11b
+ 426 0096 07       		.uleb128 0x7
+ 427 0097 41435200 		.ascii	"ACR\000"
+ 428 009b 03       		.byte	0x3
+ 429 009c 6E01     		.2byte	0x16e
+ 430 009e 88000000 		.4byte	0x88
+ 431 00a2 02       		.byte	0x2
+ 432 00a3 23       		.byte	0x23
+ 433 00a4 00       		.uleb128 0
+ 434 00a5 08       		.uleb128 0x8
+ 435 00a6 EA010000 		.4byte	.LASF12
+ 436 00aa 03       		.byte	0x3
+ 437 00ab 6F01     		.2byte	0x16f
+ 438 00ad 88000000 		.4byte	0x88
+ 439 00b1 02       		.byte	0x2
+ 440 00b2 23       		.byte	0x23
+ 441 00b3 04       		.uleb128 0x4
+ 442 00b4 08       		.uleb128 0x8
+ 443 00b5 D7000000 		.4byte	.LASF13
+ 444 00b9 03       		.byte	0x3
+ 445 00ba 7001     		.2byte	0x170
+ 446 00bc 88000000 		.4byte	0x88
+ 447 00c0 02       		.byte	0x2
+ 448 00c1 23       		.byte	0x23
+ 449 00c2 08       		.uleb128 0x8
+ 450 00c3 07       		.uleb128 0x7
+ 451 00c4 535200   		.ascii	"SR\000"
+ 452 00c7 03       		.byte	0x3
+ 453 00c8 7101     		.2byte	0x171
+ 454 00ca 88000000 		.4byte	0x88
+ 455 00ce 02       		.byte	0x2
+ 456 00cf 23       		.byte	0x23
+ 457 00d0 0C       		.uleb128 0xc
+ 458 00d1 07       		.uleb128 0x7
+ 459 00d2 435200   		.ascii	"CR\000"
+ 460 00d5 03       		.byte	0x3
+ 461 00d6 7201     		.2byte	0x172
+ 462 00d8 88000000 		.4byte	0x88
+ 463 00dc 02       		.byte	0x2
+ 464 00dd 23       		.byte	0x23
+ 465 00de 10       		.uleb128 0x10
+ 466 00df 07       		.uleb128 0x7
+ 467 00e0 415200   		.ascii	"AR\000"
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 15
+
+
+ 468 00e3 03       		.byte	0x3
+ 469 00e4 7301     		.2byte	0x173
+ 470 00e6 88000000 		.4byte	0x88
+ 471 00ea 02       		.byte	0x2
+ 472 00eb 23       		.byte	0x23
+ 473 00ec 14       		.uleb128 0x14
+ 474 00ed 08       		.uleb128 0x8
+ 475 00ee FB000000 		.4byte	.LASF14
+ 476 00f2 03       		.byte	0x3
+ 477 00f3 7401     		.2byte	0x174
+ 478 00f5 88000000 		.4byte	0x88
+ 479 00f9 02       		.byte	0x2
+ 480 00fa 23       		.byte	0x23
+ 481 00fb 18       		.uleb128 0x18
+ 482 00fc 07       		.uleb128 0x7
+ 483 00fd 4F425200 		.ascii	"OBR\000"
+ 484 0101 03       		.byte	0x3
+ 485 0102 7501     		.2byte	0x175
+ 486 0104 88000000 		.4byte	0x88
+ 487 0108 02       		.byte	0x2
+ 488 0109 23       		.byte	0x23
+ 489 010a 1C       		.uleb128 0x1c
+ 490 010b 08       		.uleb128 0x8
+ 491 010c 8A000000 		.4byte	.LASF15
+ 492 0110 03       		.byte	0x3
+ 493 0111 7601     		.2byte	0x176
+ 494 0113 88000000 		.4byte	0x88
+ 495 0117 02       		.byte	0x2
+ 496 0118 23       		.byte	0x23
+ 497 0119 20       		.uleb128 0x20
+ 498 011a 00       		.byte	0
+ 499 011b 09       		.uleb128 0x9
+ 500 011c 3D000000 		.4byte	.LASF16
+ 501 0120 03       		.byte	0x3
+ 502 0121 7701     		.2byte	0x177
+ 503 0123 8D000000 		.4byte	0x8d
+ 504 0127 06       		.uleb128 0x6
+ 505 0128 38       		.byte	0x38
+ 506 0129 03       		.byte	0x3
+ 507 012a D801     		.2byte	0x1d8
+ 508 012c 02020000 		.4byte	0x202
+ 509 0130 07       		.uleb128 0x7
+ 510 0131 435200   		.ascii	"CR\000"
+ 511 0134 03       		.byte	0x3
+ 512 0135 DA01     		.2byte	0x1da
+ 513 0137 88000000 		.4byte	0x88
+ 514 013b 02       		.byte	0x2
+ 515 013c 23       		.byte	0x23
+ 516 013d 00       		.uleb128 0
+ 517 013e 08       		.uleb128 0x8
+ 518 013f 1C000000 		.4byte	.LASF17
+ 519 0143 03       		.byte	0x3
+ 520 0144 DB01     		.2byte	0x1db
+ 521 0146 88000000 		.4byte	0x88
+ 522 014a 02       		.byte	0x2
+ 523 014b 23       		.byte	0x23
+ 524 014c 04       		.uleb128 0x4
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 16
+
+
+ 525 014d 07       		.uleb128 0x7
+ 526 014e 43495200 		.ascii	"CIR\000"
+ 527 0152 03       		.byte	0x3
+ 528 0153 DC01     		.2byte	0x1dc
+ 529 0155 88000000 		.4byte	0x88
+ 530 0159 02       		.byte	0x2
+ 531 015a 23       		.byte	0x23
+ 532 015b 08       		.uleb128 0x8
+ 533 015c 08       		.uleb128 0x8
+ 534 015d 14010000 		.4byte	.LASF18
+ 535 0161 03       		.byte	0x3
+ 536 0162 DD01     		.2byte	0x1dd
+ 537 0164 88000000 		.4byte	0x88
+ 538 0168 02       		.byte	0x2
+ 539 0169 23       		.byte	0x23
+ 540 016a 0C       		.uleb128 0xc
+ 541 016b 08       		.uleb128 0x8
+ 542 016c 95000000 		.4byte	.LASF19
+ 543 0170 03       		.byte	0x3
+ 544 0171 DE01     		.2byte	0x1de
+ 545 0173 88000000 		.4byte	0x88
+ 546 0177 02       		.byte	0x2
+ 547 0178 23       		.byte	0x23
+ 548 0179 10       		.uleb128 0x10
+ 549 017a 08       		.uleb128 0x8
+ 550 017b 4B000000 		.4byte	.LASF20
+ 551 017f 03       		.byte	0x3
+ 552 0180 DF01     		.2byte	0x1df
+ 553 0182 88000000 		.4byte	0x88
+ 554 0186 02       		.byte	0x2
+ 555 0187 23       		.byte	0x23
+ 556 0188 14       		.uleb128 0x14
+ 557 0189 08       		.uleb128 0x8
+ 558 018a 04010000 		.4byte	.LASF21
+ 559 018e 03       		.byte	0x3
+ 560 018f E001     		.2byte	0x1e0
+ 561 0191 88000000 		.4byte	0x88
+ 562 0195 02       		.byte	0x2
+ 563 0196 23       		.byte	0x23
+ 564 0197 18       		.uleb128 0x18
+ 565 0198 08       		.uleb128 0x8
+ 566 0199 0C010000 		.4byte	.LASF22
+ 567 019d 03       		.byte	0x3
+ 568 019e E101     		.2byte	0x1e1
+ 569 01a0 88000000 		.4byte	0x88
+ 570 01a4 02       		.byte	0x2
+ 571 01a5 23       		.byte	0x23
+ 572 01a6 1C       		.uleb128 0x1c
+ 573 01a7 08       		.uleb128 0x8
+ 574 01a8 08000000 		.4byte	.LASF23
+ 575 01ac 03       		.byte	0x3
+ 576 01ad E201     		.2byte	0x1e2
+ 577 01af 88000000 		.4byte	0x88
+ 578 01b3 02       		.byte	0x2
+ 579 01b4 23       		.byte	0x23
+ 580 01b5 20       		.uleb128 0x20
+ 581 01b6 07       		.uleb128 0x7
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 17
+
+
+ 582 01b7 43535200 		.ascii	"CSR\000"
+ 583 01bb 03       		.byte	0x3
+ 584 01bc E301     		.2byte	0x1e3
+ 585 01be 88000000 		.4byte	0x88
+ 586 01c2 02       		.byte	0x2
+ 587 01c3 23       		.byte	0x23
+ 588 01c4 24       		.uleb128 0x24
+ 589 01c5 08       		.uleb128 0x8
+ 590 01c6 2B000000 		.4byte	.LASF24
+ 591 01ca 03       		.byte	0x3
+ 592 01cb E401     		.2byte	0x1e4
+ 593 01cd 88000000 		.4byte	0x88
+ 594 01d1 02       		.byte	0x2
+ 595 01d2 23       		.byte	0x23
+ 596 01d3 28       		.uleb128 0x28
+ 597 01d4 08       		.uleb128 0x8
+ 598 01d5 8F000000 		.4byte	.LASF25
+ 599 01d9 03       		.byte	0x3
+ 600 01da E501     		.2byte	0x1e5
+ 601 01dc 88000000 		.4byte	0x88
+ 602 01e0 02       		.byte	0x2
+ 603 01e1 23       		.byte	0x23
+ 604 01e2 2C       		.uleb128 0x2c
+ 605 01e3 08       		.uleb128 0x8
+ 606 01e4 BE000000 		.4byte	.LASF26
+ 607 01e8 03       		.byte	0x3
+ 608 01e9 E601     		.2byte	0x1e6
+ 609 01eb 88000000 		.4byte	0x88
+ 610 01ef 02       		.byte	0x2
+ 611 01f0 23       		.byte	0x23
+ 612 01f1 30       		.uleb128 0x30
+ 613 01f2 07       		.uleb128 0x7
+ 614 01f3 43523200 		.ascii	"CR2\000"
+ 615 01f7 03       		.byte	0x3
+ 616 01f8 E701     		.2byte	0x1e7
+ 617 01fa 88000000 		.4byte	0x88
+ 618 01fe 02       		.byte	0x2
+ 619 01ff 23       		.byte	0x23
+ 620 0200 34       		.uleb128 0x34
+ 621 0201 00       		.byte	0
+ 622 0202 09       		.uleb128 0x9
+ 623 0203 CC010000 		.4byte	.LASF27
+ 624 0207 03       		.byte	0x3
+ 625 0208 E801     		.2byte	0x1e8
+ 626 020a 27010000 		.4byte	0x127
+ 627 020e 0A       		.uleb128 0xa
+ 628 020f 49010000 		.4byte	.LASF40
+ 629 0213 01       		.byte	0x1
+ 630 0214 0F01     		.2byte	0x10f
+ 631 0216 01       		.byte	0x1
+ 632 0217 01       		.byte	0x1
+ 633 0218 35020000 		.4byte	0x235
+ 634 021c 0B       		.uleb128 0xb
+ 635 021d 0D000000 		.4byte	.LASF28
+ 636 0221 01       		.byte	0x1
+ 637 0222 1101     		.2byte	0x111
+ 638 0224 88000000 		.4byte	0x88
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 18
+
+
+ 639 0228 0B       		.uleb128 0xb
+ 640 0229 33000000 		.4byte	.LASF29
+ 641 022d 01       		.byte	0x1
+ 642 022e 1101     		.2byte	0x111
+ 643 0230 88000000 		.4byte	0x88
+ 644 0234 00       		.byte	0
+ 645 0235 0C       		.uleb128 0xc
+ 646 0236 01       		.byte	0x1
+ 647 0237 6E010000 		.4byte	.LASF30
+ 648 023b 01       		.byte	0x1
+ 649 023c 97       		.byte	0x97
+ 650 023d 01       		.byte	0x1
+ 651 023e 00000000 		.4byte	.LFB32
+ 652 0242 B8000000 		.4byte	.LFE32
+ 653 0246 00000000 		.4byte	.LLST0
+ 654 024a 01       		.byte	0x1
+ 655 024b 7A020000 		.4byte	0x27a
+ 656 024f 0D       		.uleb128 0xd
+ 657 0250 0E020000 		.4byte	0x20e
+ 658 0254 46000000 		.4byte	.LBB4
+ 659 0258 98000000 		.4byte	.LBE4
+ 660 025c 01       		.byte	0x1
+ 661 025d B5       		.byte	0xb5
+ 662 025e 0E       		.uleb128 0xe
+ 663 025f 46000000 		.4byte	.LBB5
+ 664 0263 98000000 		.4byte	.LBE5
+ 665 0267 0F       		.uleb128 0xf
+ 666 0268 1C020000 		.4byte	0x21c
+ 667 026c 02       		.byte	0x2
+ 668 026d 91       		.byte	0x91
+ 669 026e 70       		.sleb128 -16
+ 670 026f 0F       		.uleb128 0xf
+ 671 0270 28020000 		.4byte	0x228
+ 672 0274 02       		.byte	0x2
+ 673 0275 91       		.byte	0x91
+ 674 0276 74       		.sleb128 -12
+ 675 0277 00       		.byte	0
+ 676 0278 00       		.byte	0
+ 677 0279 00       		.byte	0
+ 678 027a 10       		.uleb128 0x10
+ 679 027b 01       		.byte	0x1
+ 680 027c A0010000 		.4byte	.LASF31
+ 681 0280 01       		.byte	0x1
+ 682 0281 DB       		.byte	0xdb
+ 683 0282 01       		.byte	0x1
+ 684 0283 B8000000 		.4byte	.LFB33
+ 685 0287 1C010000 		.4byte	.LFE33
+ 686 028b 20000000 		.4byte	.LLST1
+ 687 028f 01       		.byte	0x1
+ 688 0290 D1020000 		.4byte	0x2d1
+ 689 0294 11       		.uleb128 0x11
+ 690 0295 746D7000 		.ascii	"tmp\000"
+ 691 0299 01       		.byte	0x1
+ 692 029a DD       		.byte	0xdd
+ 693 029b 53000000 		.4byte	0x53
+ 694 029f 40000000 		.4byte	.LLST2
+ 695 02a3 12       		.uleb128 0x12
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 19
+
+
+ 696 02a4 00000000 		.4byte	.LASF32
+ 697 02a8 01       		.byte	0x1
+ 698 02a9 DD       		.byte	0xdd
+ 699 02aa 53000000 		.4byte	0x53
+ 700 02ae A7000000 		.4byte	.LLST3
+ 701 02b2 12       		.uleb128 0x12
+ 702 02b3 21000000 		.4byte	.LASF33
+ 703 02b7 01       		.byte	0x1
+ 704 02b8 DD       		.byte	0xdd
+ 705 02b9 53000000 		.4byte	0x53
+ 706 02bd E2000000 		.4byte	.LLST4
+ 707 02c1 12       		.uleb128 0x12
+ 708 02c2 ED000000 		.4byte	.LASF34
+ 709 02c6 01       		.byte	0x1
+ 710 02c7 DD       		.byte	0xdd
+ 711 02c8 53000000 		.4byte	0x53
+ 712 02cc 18010000 		.4byte	.LLST5
+ 713 02d0 00       		.byte	0
+ 714 02d1 13       		.uleb128 0x13
+ 715 02d2 90010000 		.4byte	.LASF35
+ 716 02d6 01       		.byte	0x1
+ 717 02d7 7B       		.byte	0x7b
+ 718 02d8 53000000 		.4byte	0x53
+ 719 02dc 01       		.byte	0x1
+ 720 02dd 05       		.byte	0x5
+ 721 02de 03       		.byte	0x3
+ 722 02df 00000000 		.4byte	SystemCoreClock
+ 723 02e3 14       		.uleb128 0x14
+ 724 02e4 2C000000 		.4byte	0x2c
+ 725 02e8 F3020000 		.4byte	0x2f3
+ 726 02ec 15       		.uleb128 0x15
+ 727 02ed 81000000 		.4byte	0x81
+ 728 02f1 0F       		.byte	0xf
+ 729 02f2 00       		.byte	0
+ 730 02f3 13       		.uleb128 0x13
+ 731 02f4 9E000000 		.4byte	.LASF36
+ 732 02f8 01       		.byte	0x1
+ 733 02f9 7C       		.byte	0x7c
+ 734 02fa 05030000 		.4byte	0x305
+ 735 02fe 01       		.byte	0x1
+ 736 02ff 05       		.byte	0x5
+ 737 0300 03       		.byte	0x3
+ 738 0301 00000000 		.4byte	AHBPrescTable
+ 739 0305 16       		.uleb128 0x16
+ 740 0306 0A030000 		.4byte	0x30a
+ 741 030a 05       		.uleb128 0x5
+ 742 030b E3020000 		.4byte	0x2e3
+ 743 030f 00       		.byte	0
+ 744              		.section	.debug_abbrev,"",%progbits
+ 745              	.Ldebug_abbrev0:
+ 746 0000 01       		.uleb128 0x1
+ 747 0001 11       		.uleb128 0x11
+ 748 0002 01       		.byte	0x1
+ 749 0003 25       		.uleb128 0x25
+ 750 0004 0E       		.uleb128 0xe
+ 751 0005 13       		.uleb128 0x13
+ 752 0006 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 20
+
+
+ 753 0007 03       		.uleb128 0x3
+ 754 0008 0E       		.uleb128 0xe
+ 755 0009 1B       		.uleb128 0x1b
+ 756 000a 0E       		.uleb128 0xe
+ 757 000b 11       		.uleb128 0x11
+ 758 000c 01       		.uleb128 0x1
+ 759 000d 12       		.uleb128 0x12
+ 760 000e 01       		.uleb128 0x1
+ 761 000f 10       		.uleb128 0x10
+ 762 0010 06       		.uleb128 0x6
+ 763 0011 00       		.byte	0
+ 764 0012 00       		.byte	0
+ 765 0013 02       		.uleb128 0x2
+ 766 0014 24       		.uleb128 0x24
+ 767 0015 00       		.byte	0
+ 768 0016 0B       		.uleb128 0xb
+ 769 0017 0B       		.uleb128 0xb
+ 770 0018 3E       		.uleb128 0x3e
+ 771 0019 0B       		.uleb128 0xb
+ 772 001a 03       		.uleb128 0x3
+ 773 001b 0E       		.uleb128 0xe
+ 774 001c 00       		.byte	0
+ 775 001d 00       		.byte	0
+ 776 001e 03       		.uleb128 0x3
+ 777 001f 16       		.uleb128 0x16
+ 778 0020 00       		.byte	0
+ 779 0021 03       		.uleb128 0x3
+ 780 0022 0E       		.uleb128 0xe
+ 781 0023 3A       		.uleb128 0x3a
+ 782 0024 0B       		.uleb128 0xb
+ 783 0025 3B       		.uleb128 0x3b
+ 784 0026 0B       		.uleb128 0xb
+ 785 0027 49       		.uleb128 0x49
+ 786 0028 13       		.uleb128 0x13
+ 787 0029 00       		.byte	0
+ 788 002a 00       		.byte	0
+ 789 002b 04       		.uleb128 0x4
+ 790 002c 24       		.uleb128 0x24
+ 791 002d 00       		.byte	0
+ 792 002e 0B       		.uleb128 0xb
+ 793 002f 0B       		.uleb128 0xb
+ 794 0030 3E       		.uleb128 0x3e
+ 795 0031 0B       		.uleb128 0xb
+ 796 0032 03       		.uleb128 0x3
+ 797 0033 08       		.uleb128 0x8
+ 798 0034 00       		.byte	0
+ 799 0035 00       		.byte	0
+ 800 0036 05       		.uleb128 0x5
+ 801 0037 35       		.uleb128 0x35
+ 802 0038 00       		.byte	0
+ 803 0039 49       		.uleb128 0x49
+ 804 003a 13       		.uleb128 0x13
+ 805 003b 00       		.byte	0
+ 806 003c 00       		.byte	0
+ 807 003d 06       		.uleb128 0x6
+ 808 003e 13       		.uleb128 0x13
+ 809 003f 01       		.byte	0x1
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 21
+
+
+ 810 0040 0B       		.uleb128 0xb
+ 811 0041 0B       		.uleb128 0xb
+ 812 0042 3A       		.uleb128 0x3a
+ 813 0043 0B       		.uleb128 0xb
+ 814 0044 3B       		.uleb128 0x3b
+ 815 0045 05       		.uleb128 0x5
+ 816 0046 01       		.uleb128 0x1
+ 817 0047 13       		.uleb128 0x13
+ 818 0048 00       		.byte	0
+ 819 0049 00       		.byte	0
+ 820 004a 07       		.uleb128 0x7
+ 821 004b 0D       		.uleb128 0xd
+ 822 004c 00       		.byte	0
+ 823 004d 03       		.uleb128 0x3
+ 824 004e 08       		.uleb128 0x8
+ 825 004f 3A       		.uleb128 0x3a
+ 826 0050 0B       		.uleb128 0xb
+ 827 0051 3B       		.uleb128 0x3b
+ 828 0052 05       		.uleb128 0x5
+ 829 0053 49       		.uleb128 0x49
+ 830 0054 13       		.uleb128 0x13
+ 831 0055 38       		.uleb128 0x38
+ 832 0056 0A       		.uleb128 0xa
+ 833 0057 00       		.byte	0
+ 834 0058 00       		.byte	0
+ 835 0059 08       		.uleb128 0x8
+ 836 005a 0D       		.uleb128 0xd
+ 837 005b 00       		.byte	0
+ 838 005c 03       		.uleb128 0x3
+ 839 005d 0E       		.uleb128 0xe
+ 840 005e 3A       		.uleb128 0x3a
+ 841 005f 0B       		.uleb128 0xb
+ 842 0060 3B       		.uleb128 0x3b
+ 843 0061 05       		.uleb128 0x5
+ 844 0062 49       		.uleb128 0x49
+ 845 0063 13       		.uleb128 0x13
+ 846 0064 38       		.uleb128 0x38
+ 847 0065 0A       		.uleb128 0xa
+ 848 0066 00       		.byte	0
+ 849 0067 00       		.byte	0
+ 850 0068 09       		.uleb128 0x9
+ 851 0069 16       		.uleb128 0x16
+ 852 006a 00       		.byte	0
+ 853 006b 03       		.uleb128 0x3
+ 854 006c 0E       		.uleb128 0xe
+ 855 006d 3A       		.uleb128 0x3a
+ 856 006e 0B       		.uleb128 0xb
+ 857 006f 3B       		.uleb128 0x3b
+ 858 0070 05       		.uleb128 0x5
+ 859 0071 49       		.uleb128 0x49
+ 860 0072 13       		.uleb128 0x13
+ 861 0073 00       		.byte	0
+ 862 0074 00       		.byte	0
+ 863 0075 0A       		.uleb128 0xa
+ 864 0076 2E       		.uleb128 0x2e
+ 865 0077 01       		.byte	0x1
+ 866 0078 03       		.uleb128 0x3
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 22
+
+
+ 867 0079 0E       		.uleb128 0xe
+ 868 007a 3A       		.uleb128 0x3a
+ 869 007b 0B       		.uleb128 0xb
+ 870 007c 3B       		.uleb128 0x3b
+ 871 007d 05       		.uleb128 0x5
+ 872 007e 27       		.uleb128 0x27
+ 873 007f 0C       		.uleb128 0xc
+ 874 0080 20       		.uleb128 0x20
+ 875 0081 0B       		.uleb128 0xb
+ 876 0082 01       		.uleb128 0x1
+ 877 0083 13       		.uleb128 0x13
+ 878 0084 00       		.byte	0
+ 879 0085 00       		.byte	0
+ 880 0086 0B       		.uleb128 0xb
+ 881 0087 34       		.uleb128 0x34
+ 882 0088 00       		.byte	0
+ 883 0089 03       		.uleb128 0x3
+ 884 008a 0E       		.uleb128 0xe
+ 885 008b 3A       		.uleb128 0x3a
+ 886 008c 0B       		.uleb128 0xb
+ 887 008d 3B       		.uleb128 0x3b
+ 888 008e 05       		.uleb128 0x5
+ 889 008f 49       		.uleb128 0x49
+ 890 0090 13       		.uleb128 0x13
+ 891 0091 00       		.byte	0
+ 892 0092 00       		.byte	0
+ 893 0093 0C       		.uleb128 0xc
+ 894 0094 2E       		.uleb128 0x2e
+ 895 0095 01       		.byte	0x1
+ 896 0096 3F       		.uleb128 0x3f
+ 897 0097 0C       		.uleb128 0xc
+ 898 0098 03       		.uleb128 0x3
+ 899 0099 0E       		.uleb128 0xe
+ 900 009a 3A       		.uleb128 0x3a
+ 901 009b 0B       		.uleb128 0xb
+ 902 009c 3B       		.uleb128 0x3b
+ 903 009d 0B       		.uleb128 0xb
+ 904 009e 27       		.uleb128 0x27
+ 905 009f 0C       		.uleb128 0xc
+ 906 00a0 11       		.uleb128 0x11
+ 907 00a1 01       		.uleb128 0x1
+ 908 00a2 12       		.uleb128 0x12
+ 909 00a3 01       		.uleb128 0x1
+ 910 00a4 40       		.uleb128 0x40
+ 911 00a5 06       		.uleb128 0x6
+ 912 00a6 9742     		.uleb128 0x2117
+ 913 00a8 0C       		.uleb128 0xc
+ 914 00a9 01       		.uleb128 0x1
+ 915 00aa 13       		.uleb128 0x13
+ 916 00ab 00       		.byte	0
+ 917 00ac 00       		.byte	0
+ 918 00ad 0D       		.uleb128 0xd
+ 919 00ae 1D       		.uleb128 0x1d
+ 920 00af 01       		.byte	0x1
+ 921 00b0 31       		.uleb128 0x31
+ 922 00b1 13       		.uleb128 0x13
+ 923 00b2 11       		.uleb128 0x11
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 23
+
+
+ 924 00b3 01       		.uleb128 0x1
+ 925 00b4 12       		.uleb128 0x12
+ 926 00b5 01       		.uleb128 0x1
+ 927 00b6 58       		.uleb128 0x58
+ 928 00b7 0B       		.uleb128 0xb
+ 929 00b8 59       		.uleb128 0x59
+ 930 00b9 0B       		.uleb128 0xb
+ 931 00ba 00       		.byte	0
+ 932 00bb 00       		.byte	0
+ 933 00bc 0E       		.uleb128 0xe
+ 934 00bd 0B       		.uleb128 0xb
+ 935 00be 01       		.byte	0x1
+ 936 00bf 11       		.uleb128 0x11
+ 937 00c0 01       		.uleb128 0x1
+ 938 00c1 12       		.uleb128 0x12
+ 939 00c2 01       		.uleb128 0x1
+ 940 00c3 00       		.byte	0
+ 941 00c4 00       		.byte	0
+ 942 00c5 0F       		.uleb128 0xf
+ 943 00c6 34       		.uleb128 0x34
+ 944 00c7 00       		.byte	0
+ 945 00c8 31       		.uleb128 0x31
+ 946 00c9 13       		.uleb128 0x13
+ 947 00ca 02       		.uleb128 0x2
+ 948 00cb 0A       		.uleb128 0xa
+ 949 00cc 00       		.byte	0
+ 950 00cd 00       		.byte	0
+ 951 00ce 10       		.uleb128 0x10
+ 952 00cf 2E       		.uleb128 0x2e
+ 953 00d0 01       		.byte	0x1
+ 954 00d1 3F       		.uleb128 0x3f
+ 955 00d2 0C       		.uleb128 0xc
+ 956 00d3 03       		.uleb128 0x3
+ 957 00d4 0E       		.uleb128 0xe
+ 958 00d5 3A       		.uleb128 0x3a
+ 959 00d6 0B       		.uleb128 0xb
+ 960 00d7 3B       		.uleb128 0x3b
+ 961 00d8 0B       		.uleb128 0xb
+ 962 00d9 27       		.uleb128 0x27
+ 963 00da 0C       		.uleb128 0xc
+ 964 00db 11       		.uleb128 0x11
+ 965 00dc 01       		.uleb128 0x1
+ 966 00dd 12       		.uleb128 0x12
+ 967 00de 01       		.uleb128 0x1
+ 968 00df 40       		.uleb128 0x40
+ 969 00e0 06       		.uleb128 0x6
+ 970 00e1 9642     		.uleb128 0x2116
+ 971 00e3 0C       		.uleb128 0xc
+ 972 00e4 01       		.uleb128 0x1
+ 973 00e5 13       		.uleb128 0x13
+ 974 00e6 00       		.byte	0
+ 975 00e7 00       		.byte	0
+ 976 00e8 11       		.uleb128 0x11
+ 977 00e9 34       		.uleb128 0x34
+ 978 00ea 00       		.byte	0
+ 979 00eb 03       		.uleb128 0x3
+ 980 00ec 08       		.uleb128 0x8
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 24
+
+
+ 981 00ed 3A       		.uleb128 0x3a
+ 982 00ee 0B       		.uleb128 0xb
+ 983 00ef 3B       		.uleb128 0x3b
+ 984 00f0 0B       		.uleb128 0xb
+ 985 00f1 49       		.uleb128 0x49
+ 986 00f2 13       		.uleb128 0x13
+ 987 00f3 02       		.uleb128 0x2
+ 988 00f4 06       		.uleb128 0x6
+ 989 00f5 00       		.byte	0
+ 990 00f6 00       		.byte	0
+ 991 00f7 12       		.uleb128 0x12
+ 992 00f8 34       		.uleb128 0x34
+ 993 00f9 00       		.byte	0
+ 994 00fa 03       		.uleb128 0x3
+ 995 00fb 0E       		.uleb128 0xe
+ 996 00fc 3A       		.uleb128 0x3a
+ 997 00fd 0B       		.uleb128 0xb
+ 998 00fe 3B       		.uleb128 0x3b
+ 999 00ff 0B       		.uleb128 0xb
+ 1000 0100 49       		.uleb128 0x49
+ 1001 0101 13       		.uleb128 0x13
+ 1002 0102 02       		.uleb128 0x2
+ 1003 0103 06       		.uleb128 0x6
+ 1004 0104 00       		.byte	0
+ 1005 0105 00       		.byte	0
+ 1006 0106 13       		.uleb128 0x13
+ 1007 0107 34       		.uleb128 0x34
+ 1008 0108 00       		.byte	0
+ 1009 0109 03       		.uleb128 0x3
+ 1010 010a 0E       		.uleb128 0xe
+ 1011 010b 3A       		.uleb128 0x3a
+ 1012 010c 0B       		.uleb128 0xb
+ 1013 010d 3B       		.uleb128 0x3b
+ 1014 010e 0B       		.uleb128 0xb
+ 1015 010f 49       		.uleb128 0x49
+ 1016 0110 13       		.uleb128 0x13
+ 1017 0111 3F       		.uleb128 0x3f
+ 1018 0112 0C       		.uleb128 0xc
+ 1019 0113 02       		.uleb128 0x2
+ 1020 0114 0A       		.uleb128 0xa
+ 1021 0115 00       		.byte	0
+ 1022 0116 00       		.byte	0
+ 1023 0117 14       		.uleb128 0x14
+ 1024 0118 01       		.uleb128 0x1
+ 1025 0119 01       		.byte	0x1
+ 1026 011a 49       		.uleb128 0x49
+ 1027 011b 13       		.uleb128 0x13
+ 1028 011c 01       		.uleb128 0x1
+ 1029 011d 13       		.uleb128 0x13
+ 1030 011e 00       		.byte	0
+ 1031 011f 00       		.byte	0
+ 1032 0120 15       		.uleb128 0x15
+ 1033 0121 21       		.uleb128 0x21
+ 1034 0122 00       		.byte	0
+ 1035 0123 49       		.uleb128 0x49
+ 1036 0124 13       		.uleb128 0x13
+ 1037 0125 2F       		.uleb128 0x2f
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 25
+
+
+ 1038 0126 0B       		.uleb128 0xb
+ 1039 0127 00       		.byte	0
+ 1040 0128 00       		.byte	0
+ 1041 0129 16       		.uleb128 0x16
+ 1042 012a 26       		.uleb128 0x26
+ 1043 012b 00       		.byte	0
+ 1044 012c 49       		.uleb128 0x49
+ 1045 012d 13       		.uleb128 0x13
+ 1046 012e 00       		.byte	0
+ 1047 012f 00       		.byte	0
+ 1048 0130 00       		.byte	0
+ 1049              		.section	.debug_loc,"",%progbits
+ 1050              	.Ldebug_loc0:
+ 1051              	.LLST0:
+ 1052 0000 00000000 		.4byte	.LFB32-.Ltext0
+ 1053 0004 04000000 		.4byte	.LCFI0-.Ltext0
+ 1054 0008 0200     		.2byte	0x2
+ 1055 000a 7D       		.byte	0x7d
+ 1056 000b 00       		.sleb128 0
+ 1057 000c 04000000 		.4byte	.LCFI0-.Ltext0
+ 1058 0010 B8000000 		.4byte	.LFE32-.Ltext0
+ 1059 0014 0200     		.2byte	0x2
+ 1060 0016 7D       		.byte	0x7d
+ 1061 0017 10       		.sleb128 16
+ 1062 0018 00000000 		.4byte	0
+ 1063 001c 00000000 		.4byte	0
+ 1064              	.LLST1:
+ 1065 0020 B8000000 		.4byte	.LFB33-.Ltext0
+ 1066 0024 BA000000 		.4byte	.LCFI1-.Ltext0
+ 1067 0028 0200     		.2byte	0x2
+ 1068 002a 7D       		.byte	0x7d
+ 1069 002b 00       		.sleb128 0
+ 1070 002c BA000000 		.4byte	.LCFI1-.Ltext0
+ 1071 0030 1C010000 		.4byte	.LFE33-.Ltext0
+ 1072 0034 0200     		.2byte	0x2
+ 1073 0036 7D       		.byte	0x7d
+ 1074 0037 10       		.sleb128 16
+ 1075 0038 00000000 		.4byte	0
+ 1076 003c 00000000 		.4byte	0
+ 1077              	.LLST2:
+ 1078 0040 B8000000 		.4byte	.LVL2-.Ltext0
+ 1079 0044 C0000000 		.4byte	.LVL3-.Ltext0
+ 1080 0048 0200     		.2byte	0x2
+ 1081 004a 30       		.byte	0x30
+ 1082 004b 9F       		.byte	0x9f
+ 1083 004c C0000000 		.4byte	.LVL3-.Ltext0
+ 1084 0050 C4000000 		.4byte	.LVL4-.Ltext0
+ 1085 0054 0500     		.2byte	0x5
+ 1086 0056 72       		.byte	0x72
+ 1087 0057 00       		.sleb128 0
+ 1088 0058 3C       		.byte	0x3c
+ 1089 0059 1A       		.byte	0x1a
+ 1090 005a 9F       		.byte	0x9f
+ 1091 005b C4000000 		.4byte	.LVL4-.Ltext0
+ 1092 005f CE000000 		.4byte	.LVL5-.Ltext0
+ 1093 0063 0100     		.2byte	0x1
+ 1094 0065 53       		.byte	0x53
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 26
+
+
+ 1095 0066 CE000000 		.4byte	.LVL5-.Ltext0
+ 1096 006a D2000000 		.4byte	.LVL6-.Ltext0
+ 1097 006e 0500     		.2byte	0x5
+ 1098 0070 72       		.byte	0x72
+ 1099 0071 00       		.sleb128 0
+ 1100 0072 3C       		.byte	0x3c
+ 1101 0073 1A       		.byte	0x1a
+ 1102 0074 9F       		.byte	0x9f
+ 1103 0075 D2000000 		.4byte	.LVL6-.Ltext0
+ 1104 0079 D6000000 		.4byte	.LVL8-.Ltext0
+ 1105 007d 0100     		.2byte	0x1
+ 1106 007f 53       		.byte	0x53
+ 1107 0080 D6000000 		.4byte	.LVL8-.Ltext0
+ 1108 0084 F3000000 		.4byte	.LVL18-1-.Ltext0
+ 1109 0088 0500     		.2byte	0x5
+ 1110 008a 72       		.byte	0x72
+ 1111 008b 00       		.sleb128 0
+ 1112 008c 3C       		.byte	0x3c
+ 1113 008d 1A       		.byte	0x1a
+ 1114 008e 9F       		.byte	0x9f
+ 1115 008f 04010000 		.4byte	.LVL20-.Ltext0
+ 1116 0093 1C010000 		.4byte	.LFE33-.Ltext0
+ 1117 0097 0600     		.2byte	0x6
+ 1118 0099 72       		.byte	0x72
+ 1119 009a 00       		.sleb128 0
+ 1120 009b 08       		.byte	0x8
+ 1121 009c FF       		.byte	0xff
+ 1122 009d 1A       		.byte	0x1a
+ 1123 009e 9F       		.byte	0x9f
+ 1124 009f 00000000 		.4byte	0
+ 1125 00a3 00000000 		.4byte	0
+ 1126              	.LLST3:
+ 1127 00a7 B8000000 		.4byte	.LVL2-.Ltext0
+ 1128 00ab D4000000 		.4byte	.LVL7-.Ltext0
+ 1129 00af 0200     		.2byte	0x2
+ 1130 00b1 30       		.byte	0x30
+ 1131 00b2 9F       		.byte	0x9f
+ 1132 00b3 D4000000 		.4byte	.LVL7-.Ltext0
+ 1133 00b7 D8000000 		.4byte	.LVL9-.Ltext0
+ 1134 00bb 0700     		.2byte	0x7
+ 1135 00bd 76       		.byte	0x76
+ 1136 00be 00       		.sleb128 0
+ 1137 00bf 4E       		.byte	0x4e
+ 1138 00c0 41       		.byte	0x41
+ 1139 00c1 24       		.byte	0x24
+ 1140 00c2 1A       		.byte	0x1a
+ 1141 00c3 9F       		.byte	0x9f
+ 1142 00c4 DC000000 		.4byte	.LVL10-.Ltext0
+ 1143 00c8 E4000000 		.4byte	.LVL12-.Ltext0
+ 1144 00cc 0100     		.2byte	0x1
+ 1145 00ce 56       		.byte	0x56
+ 1146 00cf E6000000 		.4byte	.LVL13-.Ltext0
+ 1147 00d3 F6000000 		.4byte	.LVL19-.Ltext0
+ 1148 00d7 0100     		.2byte	0x1
+ 1149 00d9 56       		.byte	0x56
+ 1150 00da 00000000 		.4byte	0
+ 1151 00de 00000000 		.4byte	0
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 27
+
+
+ 1152              	.LLST4:
+ 1153 00e2 B8000000 		.4byte	.LVL2-.Ltext0
+ 1154 00e6 D6000000 		.4byte	.LVL8-.Ltext0
+ 1155 00ea 0200     		.2byte	0x2
+ 1156 00ec 30       		.byte	0x30
+ 1157 00ed 9F       		.byte	0x9f
+ 1158 00ee D6000000 		.4byte	.LVL8-.Ltext0
+ 1159 00f2 E2000000 		.4byte	.LVL11-.Ltext0
+ 1160 00f6 0700     		.2byte	0x7
+ 1161 00f8 73       		.byte	0x73
+ 1162 00f9 00       		.sleb128 0
+ 1163 00fa 40       		.byte	0x40
+ 1164 00fb 3C       		.byte	0x3c
+ 1165 00fc 24       		.byte	0x24
+ 1166 00fd 1A       		.byte	0x1a
+ 1167 00fe 9F       		.byte	0x9f
+ 1168 00ff E6000000 		.4byte	.LVL13-.Ltext0
+ 1169 0103 EA000000 		.4byte	.LVL15-.Ltext0
+ 1170 0107 0700     		.2byte	0x7
+ 1171 0109 73       		.byte	0x73
+ 1172 010a 00       		.sleb128 0
+ 1173 010b 40       		.byte	0x40
+ 1174 010c 3C       		.byte	0x3c
+ 1175 010d 24       		.byte	0x24
+ 1176 010e 1A       		.byte	0x1a
+ 1177 010f 9F       		.byte	0x9f
+ 1178 0110 00000000 		.4byte	0
+ 1179 0114 00000000 		.4byte	0
+ 1180              	.LLST5:
+ 1181 0118 B8000000 		.4byte	.LVL2-.Ltext0
+ 1182 011c E8000000 		.4byte	.LVL14-.Ltext0
+ 1183 0120 0200     		.2byte	0x2
+ 1184 0122 30       		.byte	0x30
+ 1185 0123 9F       		.byte	0x9f
+ 1186 0124 E8000000 		.4byte	.LVL14-.Ltext0
+ 1187 0128 EC000000 		.4byte	.LVL16-.Ltext0
+ 1188 012c 0700     		.2byte	0x7
+ 1189 012e 71       		.byte	0x71
+ 1190 012f 00       		.sleb128 0
+ 1191 0130 3F       		.byte	0x3f
+ 1192 0131 1A       		.byte	0x1a
+ 1193 0132 23       		.byte	0x23
+ 1194 0133 01       		.uleb128 0x1
+ 1195 0134 9F       		.byte	0x9f
+ 1196 0135 EE000000 		.4byte	.LVL17-.Ltext0
+ 1197 0139 F3000000 		.4byte	.LVL18-1-.Ltext0
+ 1198 013d 0100     		.2byte	0x1
+ 1199 013f 51       		.byte	0x51
+ 1200 0140 00000000 		.4byte	0
+ 1201 0144 00000000 		.4byte	0
+ 1202              		.section	.debug_aranges,"",%progbits
+ 1203 0000 1C000000 		.4byte	0x1c
+ 1204 0004 0200     		.2byte	0x2
+ 1205 0006 00000000 		.4byte	.Ldebug_info0
+ 1206 000a 04       		.byte	0x4
+ 1207 000b 00       		.byte	0
+ 1208 000c 0000     		.2byte	0
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 28
+
+
+ 1209 000e 0000     		.2byte	0
+ 1210 0010 00000000 		.4byte	.Ltext0
+ 1211 0014 1C010000 		.4byte	.Letext0-.Ltext0
+ 1212 0018 00000000 		.4byte	0
+ 1213 001c 00000000 		.4byte	0
+ 1214              		.section	.debug_line,"",%progbits
+ 1215              	.Ldebug_line0:
+ 1216 0000 1D010000 		.section	.debug_str,"MS",%progbits,1
+ 1216      0200CA00 
+ 1216      00000201 
+ 1216      FB0E0D00 
+ 1216      01010101 
+ 1217              	.LASF32:
+ 1218 0000 706C6C6D 		.ascii	"pllmull\000"
+ 1218      756C6C00 
+ 1219              	.LASF23:
+ 1220 0008 42444352 		.ascii	"BDCR\000"
+ 1220      00
+ 1221              	.LASF28:
+ 1222 000d 53746172 		.ascii	"StartUpCounter\000"
+ 1222      74557043 
+ 1222      6F756E74 
+ 1222      657200
+ 1223              	.LASF17:
+ 1224 001c 43464752 		.ascii	"CFGR\000"
+ 1224      00
+ 1225              	.LASF33:
+ 1226 0021 706C6C73 		.ascii	"pllsource\000"
+ 1226      6F757263 
+ 1226      6500
+ 1227              	.LASF24:
+ 1228 002b 41484252 		.ascii	"AHBRSTR\000"
+ 1228      53545200 
+ 1229              	.LASF29:
+ 1230 0033 48534553 		.ascii	"HSEStatus\000"
+ 1230      74617475 
+ 1230      7300
+ 1231              	.LASF16:
+ 1232 003d 464C4153 		.ascii	"FLASH_TypeDef\000"
+ 1232      485F5479 
+ 1232      70654465 
+ 1232      6600
+ 1233              	.LASF20:
+ 1234 004b 41484245 		.ascii	"AHBENR\000"
+ 1234      4E5200
+ 1235              	.LASF39:
+ 1236 0052 433A5C6D 		.ascii	"C:\\mo\\SoftwareWork\\EclipeWorkspace\\MB1034B_A0_i"
+ 1236      6F5C536F 
+ 1236      66747761 
+ 1236      7265576F 
+ 1236      726B5C45 
+ 1237 0081 6F746F67 		.ascii	"otoggle0\000"
+ 1237      676C6530 
+ 1237      00
+ 1238              	.LASF15:
+ 1239 008a 57525052 		.ascii	"WRPR\000"
+ 1239      00
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 29
+
+
+ 1240              	.LASF25:
+ 1241 008f 43464752 		.ascii	"CFGR2\000"
+ 1241      3200
+ 1242              	.LASF19:
+ 1243 0095 41504231 		.ascii	"APB1RSTR\000"
+ 1243      52535452 
+ 1243      00
+ 1244              	.LASF36:
+ 1245 009e 41484250 		.ascii	"AHBPrescTable\000"
+ 1245      72657363 
+ 1245      5461626C 
+ 1245      6500
+ 1246              	.LASF7:
+ 1247 00ac 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1247      20756E73 
+ 1247      69676E65 
+ 1247      6420696E 
+ 1247      7400
+ 1248              	.LASF26:
+ 1249 00be 43464752 		.ascii	"CFGR3\000"
+ 1249      3300
+ 1250              	.LASF3:
+ 1251 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 1251      7420756E 
+ 1251      7369676E 
+ 1251      65642069 
+ 1251      6E7400
+ 1252              	.LASF13:
+ 1253 00d7 4F50544B 		.ascii	"OPTKEYR\000"
+ 1253      45595200 
+ 1254              	.LASF1:
+ 1255 00df 756E7369 		.ascii	"unsigned char\000"
+ 1255      676E6564 
+ 1255      20636861 
+ 1255      7200
+ 1256              	.LASF34:
+ 1257 00ed 70726564 		.ascii	"prediv1factor\000"
+ 1257      69763166 
+ 1257      6163746F 
+ 1257      7200
+ 1258              	.LASF14:
+ 1259 00fb 52455345 		.ascii	"RESERVED\000"
+ 1259      52564544 
+ 1259      00
+ 1260              	.LASF21:
+ 1261 0104 41504232 		.ascii	"APB2ENR\000"
+ 1261      454E5200 
+ 1262              	.LASF22:
+ 1263 010c 41504231 		.ascii	"APB1ENR\000"
+ 1263      454E5200 
+ 1264              	.LASF18:
+ 1265 0114 41504232 		.ascii	"APB2RSTR\000"
+ 1265      52535452 
+ 1265      00
+ 1266              	.LASF10:
+ 1267 011d 756E7369 		.ascii	"unsigned int\000"
+ 1267      676E6564 
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 30
+
+
+ 1267      20696E74 
+ 1267      00
+ 1268              	.LASF9:
+ 1269 012a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1269      206C6F6E 
+ 1269      6720756E 
+ 1269      7369676E 
+ 1269      65642069 
+ 1270              	.LASF5:
+ 1271 0141 75696E74 		.ascii	"uint8_t\000"
+ 1271      385F7400 
+ 1272              	.LASF40:
+ 1273 0149 53657453 		.ascii	"SetSysClock\000"
+ 1273      7973436C 
+ 1273      6F636B00 
+ 1274              	.LASF38:
+ 1275 0155 2E5C7372 		.ascii	".\\src\\system_stm32f0xx.c\000"
+ 1275      635C7379 
+ 1275      7374656D 
+ 1275      5F73746D 
+ 1275      33326630 
+ 1276              	.LASF30:
+ 1277 016e 53797374 		.ascii	"SystemInit\000"
+ 1277      656D496E 
+ 1277      697400
+ 1278              	.LASF11:
+ 1279 0179 73697A65 		.ascii	"sizetype\000"
+ 1279      74797065 
+ 1279      00
+ 1280              	.LASF8:
+ 1281 0182 6C6F6E67 		.ascii	"long long int\000"
+ 1281      206C6F6E 
+ 1281      6720696E 
+ 1281      7400
+ 1282              	.LASF35:
+ 1283 0190 53797374 		.ascii	"SystemCoreClock\000"
+ 1283      656D436F 
+ 1283      7265436C 
+ 1283      6F636B00 
+ 1284              	.LASF31:
+ 1285 01a0 53797374 		.ascii	"SystemCoreClockUpdate\000"
+ 1285      656D436F 
+ 1285      7265436C 
+ 1285      6F636B55 
+ 1285      70646174 
+ 1286              	.LASF37:
+ 1287 01b6 474E5520 		.ascii	"GNU C 4.7.2\000"
+ 1287      4320342E 
+ 1287      372E3200 
+ 1288              	.LASF2:
+ 1289 01c2 73686F72 		.ascii	"short int\000"
+ 1289      7420696E 
+ 1289      7400
+ 1290              	.LASF27:
+ 1291 01cc 5243435F 		.ascii	"RCC_TypeDef\000"
+ 1291      54797065 
+ 1291      44656600 
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 31
+
+
+ 1292              	.LASF6:
+ 1293 01d8 75696E74 		.ascii	"uint32_t\000"
+ 1293      33325F74 
+ 1293      00
+ 1294              	.LASF4:
+ 1295 01e1 6C6F6E67 		.ascii	"long int\000"
+ 1295      20696E74 
+ 1295      00
+ 1296              	.LASF12:
+ 1297 01ea 4B455952 		.ascii	"KEYR\000"
+ 1297      00
+ 1298              	.LASF0:
+ 1299 01ef 7369676E 		.ascii	"signed char\000"
+ 1299      65642063 
+ 1299      68617200 
+ 1300              		.ident	"GCC: (GNU) 4.7.2"
+ARM GAS  C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s 			page 32
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 system_stm32f0xx.c
+C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s:66     .text:00000000 $t
+C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s:71     .text:00000000 SystemInit
+C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s:200    .text:0000009c $d
+C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s:211    .text:000000b8 $t
+C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s:216    .text:000000b8 SystemCoreClockUpdate
+C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s:312    .text:0000010c $d
+C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s:330    .data:00000004 AHBPrescTable
+C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s:326    .data:00000000 SystemCoreClock
+C:\Users\Johann\AppData\Local\Temp\cc47dTx4.s:322    .data:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+__aeabi_uidiv
